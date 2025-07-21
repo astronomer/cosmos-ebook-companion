@@ -1,0 +1,11 @@
+channel_id,channel_name,channel_type,description,is_digital,cost_per_interaction,availability
+CH001,Mobile App,digital,Mobile banking application,true,0.15,24/7
+CH002,Online Banking,digital,Web-based banking portal,true,0.25,24/7
+CH003,Phone Banking,voice,Automated phone system,false,2.50,24/7
+CH004,Call Center,voice,Live agent phone support,false,8.75,Business Hours
+CH005,Branch Teller,in_person,In-person branch service,false,15.50,Business Hours
+CH006,ATM,self_service,Automated teller machine,false,1.25,24/7
+CH007,Chat Support,digital,Online chat with agent,true,3.25,Business Hours
+CH008,Email Support,digital,Email customer service,true,1.50,24/7
+CH009,Video Banking,digital,Virtual teller service,true,5.75,Extended Hours
+CH010,Partner Location,in_person,Third-party service location,false,12.00,Variable 

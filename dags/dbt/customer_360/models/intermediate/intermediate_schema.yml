@@ -1,0 +1,316 @@
+version: 2
+
+models:
+  # ========================================
+  # CUSTOMER ANALYTICS INTERMEDIATE MODELS
+  # ========================================
+  
+  - name: int_customer_profile
+    description: >
+      Comprehensive 360-degree customer view combining demographics, contact info, 
+      segmentation, service interactions, and digital engagement patterns.
+      Foundation model for customer analytics and personalization.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: full_name
+        description: Complete customer name
+        tests:
+          - not_null
+      - name: engagement_level
+        description: Customer engagement classification based on digital activity and satisfaction
+        tests:
+          - accepted_values:
+              values: ['HIGHLY_ENGAGED', 'MODERATELY_ENGAGED', 'LIGHTLY_ENGAGED', 'MINIMAL_ENGAGEMENT']
+      - name: digital_preference
+        description: Customer's preferred digital interaction pattern
+        tests:
+          - accepted_values:
+              values: ['MOBILE_PREFERRED', 'WEB_PREFERRED', 'MULTI_CHANNEL', 'NON_DIGITAL']
+      - name: at_risk_customer
+        description: Flag indicating if customer is at risk of churning
+        tests:
+          - not_null
+
+  - name: int_customer_360_master
+    description: >
+      Ultimate customer intelligence model combining all intermediate customer insights.
+      Provides complete customer view for executive dashboards and AI/ML applications.
+      Creates beautiful dependency cascades from multiple intermediate models.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: customer_lifetime_value_score
+        description: Calculated CLV score (0-100) based on multiple factors
+        tests:
+          - not_null
+      - name: churn_risk_score
+        description: Predictive churn risk score (0-100, higher = more likely to churn)
+        tests:
+          - not_null
+      - name: executive_customer_tier
+        description: Executive-level customer classification
+        tests:
+          - accepted_values:
+              values: ['ULTRA_HIGH_NET_WORTH', 'HIGH_NET_WORTH', 'PLATINUM_CUSTOMER', 'GOLD_CUSTOMER', 'SILVER_CUSTOMER', 'BRONZE_CUSTOMER']
+      - name: next_best_action
+        description: AI-driven recommendation for next customer interaction
+        tests:
+          - not_null
+
+  - name: int_customer_retention_analytics
+    description: >
+      Advanced retention modeling combining retention events, interaction patterns,
+      digital engagement trends, and predictive churn scoring.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: churn_risk_score
+        description: Composite churn risk score (0-100)
+        tests:
+          - not_null
+      - name: retention_opportunity_score
+        description: Score indicating retention program suitability (0-100)
+        tests:
+          - not_null
+      - name: retention_lifecycle_stage
+        description: Current stage in retention lifecycle
+        tests:
+          - accepted_values:
+              values: ['CHURNED', 'HIGH_CHURN_RISK', 'DISSATISFIED', 'DISENGAGED', 'COMPLAINT_PATTERN', 'SUCCESSFULLY_RETAINED', 'LOYAL', 'STABLE']
+      - name: retention_priority
+        description: Priority level for retention efforts
+        tests:
+          - accepted_values:
+              values: ['WIN_BACK', 'CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'MONITOR']
+
+  # ========================================
+  # FINANCIAL METRICS INTERMEDIATE MODELS
+  # ========================================
+
+  - name: int_customer_financial_summary
+    description: >
+      Comprehensive financial holdings summary combining all product relationships:
+      accounts, cards, loans, investments, and insurance.
+      Provides total relationship value and product penetration metrics.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: total_relationship_value
+        description: Total value of all customer relationships with the bank
+        tests:
+          - not_null
+      - name: net_worth_with_bank
+        description: Customer's net worth considering all assets and liabilities
+        tests:
+          - not_null
+      - name: product_penetration_score
+        description: Score representing breadth of product adoption (0-100)
+        tests:
+          - not_null
+      - name: wealth_tier
+        description: Customer wealth classification
+        tests:
+          - accepted_values:
+              values: ['PRIVATE_BANKING', 'WEALTH_MANAGEMENT', 'PREFERRED', 'SELECT', 'STANDARD']
+      - name: financial_risk_level
+        description: Overall financial risk assessment
+        tests:
+          - accepted_values:
+              values: ['HIGH_RISK', 'MEDIUM_RISK', 'LOW_RISK']
+
+  - name: int_transaction_analytics
+    description: >
+      Comprehensive transaction behavior analysis combining all transaction types:
+      transactions, deposits, withdrawals, transfers, payments, and fees.
+      Provides spending patterns, cash flow analysis, and behavioral insights.
+    columns:
+      - name: account_id
+        description: Unique account identifier
+        tests:
+          - not_null
+          - unique
+      - name: total_transaction_volume
+        description: Total monetary volume of all transactions
+        tests:
+          - not_null
+      - name: net_cash_flow
+        description: Net cash flow (inflows minus outflows)
+        tests:
+          - not_null
+      - name: digital_transaction_percentage
+        description: Percentage of transactions conducted digitally
+        tests:
+          - not_null
+      - name: activity_level
+        description: Account activity classification
+        tests:
+          - accepted_values:
+              values: ['VERY_ACTIVE', 'ACTIVE', 'MODERATE', 'LIGHT', 'MINIMAL']
+      - name: spending_category
+        description: Customer spending behavior classification
+        tests:
+          - accepted_values:
+              values: ['HIGH_SPENDER', 'MEDIUM_SPENDER', 'MODERATE_SPENDER', 'LOW_SPENDER']
+
+  - name: int_account_performance_dashboard
+    description: >
+      Executive-level account performance metrics combining multiple intermediate models.
+      Creates the ultimate dependency cascade - depends on 5 other intermediate models!
+      Provides comprehensive account analytics for executive dashboards.
+    columns:
+      - name: account_id
+        description: Unique account identifier
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+      - name: account_profitability_score
+        description: Account profitability score (0-100)
+        tests:
+          - not_null
+      - name: account_health_score
+        description: Overall account health assessment (0-100)
+        tests:
+          - not_null
+      - name: account_risk_flag
+        description: Risk indicator for the account
+        tests:
+          - accepted_values:
+              values: ['IMMEDIATE_REVIEW_REQUIRED', 'ENHANCED_MONITORING', 'CUSTOMER_AT_RISK', 'DORMANT_ACCOUNT', 'NEGATIVE_BALANCE', 'NORMAL']
+      - name: account_service_tier
+        description: Service tier classification for account
+        tests:
+          - accepted_values:
+              values: ['PRIVATE_BANKING', 'WEALTH_MANAGEMENT', 'PREMIUM', 'PREFERRED', 'ACTIVE', 'STANDARD']
+
+  # ========================================
+  # RISK ANALYTICS INTERMEDIATE MODELS
+  # ========================================
+
+  - name: int_comprehensive_risk_profile
+    description: >
+      Integrated risk assessment combining risk assessments, fraud alerts, 
+      compliance screening, credit scores, and KYC data.
+      Provides unified risk scoring and regulatory compliance status.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: composite_risk_score
+        description: Weighted composite risk score across all risk types
+        tests:
+          - not_null
+      - name: overall_risk_level
+        description: Overall risk classification
+        tests:
+          - accepted_values:
+              values: ['CRITICAL_RISK', 'HIGH_RISK', 'ELEVATED_RISK', 'MODERATE_RISK', 'LOW_RISK']
+      - name: compliance_status
+        description: Regulatory compliance status
+        tests:
+          - accepted_values:
+              values: ['NON_COMPLIANT', 'REVIEW_REQUIRED', 'COMPLIANT', 'PENDING_VERIFICATION']
+      - name: requires_enhanced_monitoring
+        description: Flag for enhanced monitoring requirement
+        tests:
+          - not_null
+      - name: requires_immediate_review
+        description: Flag for immediate review requirement
+        tests:
+          - not_null
+      - name: risk_trend
+        description: Risk trend analysis
+        tests:
+          - accepted_values:
+              values: ['VOLATILE', 'DETERIORATING', 'UNSTABLE', 'STABLE']
+
+  # ========================================
+  # PRODUCT ANALYTICS INTERMEDIATE MODELS
+  # ========================================
+
+  - name: int_product_penetration_analysis
+    description: >
+      Product adoption patterns across customer segments combining usage patterns,
+      marketing campaigns, and channel preferences.
+      Provides insights for product strategy and cross-selling opportunities.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: product_penetration_score
+        description: Cross-product penetration score (0-100)
+        tests:
+          - not_null
+      - name: digital_adoption_level
+        description: Digital product adoption classification
+        tests:
+          - accepted_values:
+              values: ['DIGITAL_NATIVE', 'DIGITAL_ADOPTER', 'DIGITAL_BEGINNER', 'NON_DIGITAL']
+      - name: marketing_responsiveness
+        description: Customer responsiveness to marketing campaigns
+        tests:
+          - accepted_values:
+              values: ['UNTARGETED', 'HIGHLY_RESPONSIVE', 'MODERATELY_RESPONSIVE', 'LIGHTLY_RESPONSIVE', 'UNRESPONSIVE']
+      - name: cross_sell_opportunity_score
+        description: Cross-selling opportunity score (0-100)
+        tests:
+          - not_null
+      - name: product_stickiness_score
+        description: Product engagement and loyalty score (0-100)
+        tests:
+          - not_null
+
+  - name: int_channel_effectiveness
+    description: >
+      Comprehensive channel performance analysis combining usage patterns,
+      marketing effectiveness, service interactions, and digital activity.
+      Provides insights for channel optimization and omnichannel strategy.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: digital_adoption_score
+        description: Digital channel adoption score (0-100)
+        tests:
+          - not_null
+      - name: channel_diversity_score
+        description: Channel usage diversity score (0-100)
+        tests:
+          - not_null
+      - name: channel_preference
+        description: Customer's primary channel preference
+        tests:
+          - accepted_values:
+              values: ['DIGITAL_ONLY', 'DIGITAL_FIRST', 'DIGITAL_PREFERRED', 'PHYSICAL_PREFERRED', 'OMNI_CHANNEL', 'PHYSICAL_ONLY', 'MINIMAL_USAGE']
+      - name: channel_engagement_level
+        description: Overall channel engagement level
+        tests:
+          - accepted_values:
+              values: ['VERY_HIGH', 'HIGH', 'MEDIUM', 'LOW', 'MINIMAL', 'NONE']
+      - name: digital_session_quality
+        description: Quality assessment of digital sessions
+        tests:
+          - accepted_values:
+              values: ['HIGH_QUALITY', 'MEDIUM_QUALITY', 'LOW_QUALITY', 'BRIEF_SESSIONS', 'NO_SESSIONS'] 

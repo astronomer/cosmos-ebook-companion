@@ -1,0 +1,11 @@
+tier_id,product_type,balance_min,balance_max,interest_rate,tier_name
+RT001,savings,0,10000,0.50,Basic Savings
+RT002,savings,10001,50000,1.25,Enhanced Savings
+RT003,savings,50001,999999999,2.50,Premium Savings
+RT004,checking,0,25000,0.01,Basic Checking
+RT005,checking,25001,999999999,0.25,Premium Checking
+RT006,certificate,1000,100000,4.25,Standard CD
+RT007,mortgage,0,999999999,6.75,30-Year Fixed
+RT008,personal_loan,0,50000,8.50,Personal Loan
+RT009,credit_card,0,999999999,18.99,Standard Credit
+RT010,business,0,999999999,4.50,Business Account 

@@ -1,0 +1,11 @@
+cohort_id,cohort_name,birth_year_start,birth_year_end,age_range,characteristics,preferred_channels
+AC001,Gen Z,1997,2012,12-27,Digital native social conscious,Mobile App
+AC002,Millennial,1981,1996,28-43,Tech-savvy career-focused,Mobile App|Online
+AC003,Gen X,1965,1980,44-59,Established families wealth-building,Online|Call Center
+AC004,Baby Boomer,1946,1964,60-78,Pre-retirement wealth preservation,Branch|Call Center
+AC005,Silent Generation,1928,1945,79-96,Conservative fixed-income focused,Branch|Phone
+AC006,Young Professional,1990,2000,24-34,Career growth investment-focused,Mobile|Online
+AC007,Mid-Career,1975,1989,35-49,Peak earning family-focused,Online|Branch
+AC008,Pre-Retirement,1955,1974,50-69,Wealth preservation planning,Branch|Call Center
+AC009,Retired,1935,1954,70-89,Income preservation legacy planning,Branch|Phone
+AC010,Young Adult,2000,2005,19-24,Student early career,Mobile App 

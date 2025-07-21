@@ -1,0 +1,11 @@
+score_range_id,range_name,min_score,max_score,grade,description,typical_products,default_rate
+CSR001,Exceptional,800,850,A+,Exceptional credit - best rates available,Premium cards and loans,0.5
+CSR002,Very Good,740,799,A,Very good credit - excellent rates,Most products available,1.2
+CSR003,Good,670,739,B+,Good credit - competitive rates,Standard products,2.8
+CSR004,Fair,580,669,B,Fair credit - higher rates,Limited product selection,8.5
+CSR005,Poor,500,579,C,Poor credit - subprime rates,Secured products only,18.2
+CSR006,Very Poor,300,499,D,Very poor credit - limited options,Prepaid products only,35.0
+CSR007,No Score,0,299,N/A,Insufficient credit history,Secured products only,12.0
+CSR008,Thin File,300,599,C-,Limited credit history,Basic products,15.5
+CSR009,New Credit,580,720,B,Newly established credit,Starter products,6.2
+CSR010,Rebuilt Credit,550,750,B-,Credit being rebuilt after issues,Second chance products,9.8 

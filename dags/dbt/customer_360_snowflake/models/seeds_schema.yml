@@ -1,0 +1,292 @@
+version: 2
+
+seeds:
+  - name: product_catalog
+    description: "Catalog of all financial products offered by Pinnacle Financial Services"
+    columns:
+      - name: product_id
+        description: "Unique identifier for financial product"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Display name of the product"
+      - name: product_type
+        description: "Type classification (account, credit_card, loan, etc.)"
+      - name: category
+        description: "Business category (banking, lending, investments, insurance)"
+      - name: risk_level
+        description: "Risk classification (Low, Medium, High)"
+
+  - name: risk_categories
+    description: "Risk classification system for customer and product assessment"
+    columns:
+      - name: risk_category_id
+        description: "Unique risk category identifier"
+        tests:
+          - unique
+          - not_null
+      - name: risk_level
+        description: "Numeric risk level (1-10)"
+      - name: score_min
+        description: "Minimum credit score for this category"
+      - name: score_max
+        description: "Maximum credit score for this category"
+
+  - name: credit_score_ranges
+    description: "Credit score ranges and associated risk profiles"
+    columns:
+      - name: score_range_id
+        description: "Unique identifier for score range"
+        tests:
+          - unique
+          - not_null
+      - name: range_name
+        description: "Descriptive name for score range"
+      - name: min_score
+        description: "Minimum score in range"
+      - name: max_score
+        description: "Maximum score in range"
+      - name: default_rate
+        description: "Historical default rate percentage"
+
+  - name: transaction_types
+    description: "Classification of all transaction types"
+    columns:
+      - name: transaction_type_id
+        description: "Unique transaction type identifier"
+        tests:
+          - unique
+          - not_null
+      - name: type_name
+        description: "Display name for transaction type"
+      - name: category
+        description: "Transaction category (deposit, withdrawal, transfer, etc.)"
+      - name: risk_weight
+        description: "Risk weighting factor for this transaction type"
+
+  - name: channel_definitions
+    description: "Customer service and interaction channels"
+    columns:
+      - name: channel_id
+        description: "Unique channel identifier"
+        tests:
+          - unique
+          - not_null
+      - name: channel_name
+        description: "Channel display name"
+      - name: is_digital
+        description: "Whether this is a digital channel"
+      - name: cost_per_interaction
+        description: "Average cost per customer interaction"
+
+  - name: geographic_regions
+    description: "Geographic regions and market classifications"
+    columns:
+      - name: region_id
+        description: "Unique region identifier"
+        tests:
+          - unique
+          - not_null
+      - name: state_code
+        description: "Two-letter state code"
+      - name: state_name
+        description: "Full state name"
+      - name: market_type
+        description: "Market classification (Urban, Rural, Mixed)"
+
+  - name: income_brackets
+    description: "Income classification brackets for customer segmentation"
+    columns:
+      - name: bracket_id
+        description: "Unique bracket identifier"
+        tests:
+          - unique
+          - not_null
+      - name: bracket_name
+        description: "Income bracket display name"
+      - name: min_income
+        description: "Minimum income for bracket"
+      - name: max_income
+        description: "Maximum income for bracket"
+
+  - name: age_cohorts
+    description: "Age-based customer cohorts and characteristics"
+    columns:
+      - name: cohort_id
+        description: "Unique cohort identifier"
+        tests:
+          - unique
+          - not_null
+      - name: cohort_name
+        description: "Cohort display name"
+      - name: birth_year_start
+        description: "Starting birth year for cohort"
+      - name: birth_year_end
+        description: "Ending birth year for cohort"
+
+  - name: occupation_categories
+    description: "Occupation categories with risk assessments"
+    columns:
+      - name: occupation_id
+        description: "Unique occupation identifier"
+        tests:
+          - unique
+          - not_null
+      - name: category_name
+        description: "Occupation category name"
+      - name: risk_level
+        description: "Risk assessment for occupation"
+      - name: income_stability
+        description: "Income stability rating"
+
+  - name: regulatory_requirements
+    description: "Regulatory requirements by product and threshold"
+    columns:
+      - name: requirement_id
+        description: "Unique requirement identifier"
+        tests:
+          - unique
+          - not_null
+      - name: regulation_name
+        description: "Name of regulation"
+      - name: threshold_amount
+        description: "Monetary threshold triggering requirement"
+
+  - name: compliance_rules
+    description: "Business rules for compliance monitoring"
+    columns:
+      - name: rule_id
+        description: "Unique rule identifier"
+        tests:
+          - unique
+          - not_null
+      - name: rule_name
+        description: "Rule display name"
+      - name: threshold
+        description: "Threshold value triggering rule"
+      - name: severity_level
+        description: "Severity classification"
+
+  - name: currency_codes
+    description: "Supported currencies and exchange rates"
+    columns:
+      - name: currency_code
+        description: "Three-letter currency code"
+        tests:
+          - unique
+          - not_null
+      - name: currency_name
+        description: "Full currency name"
+      - name: exchange_rate_usd
+        description: "Exchange rate to USD"
+
+  - name: country_risk_ratings
+    description: "Country risk assessments for international operations"
+    columns:
+      - name: country_code
+        description: "Two-letter country code"
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "Full country name"
+      - name: risk_rating
+        description: "Overall country risk rating"
+
+  - name: fee_structures
+    description: "Fee structures for products and services"
+    columns:
+      - name: fee_id
+        description: "Unique fee identifier"
+        tests:
+          - unique
+          - not_null
+      - name: fee_name
+        description: "Fee display name"
+      - name: fee_amount
+        description: "Fee amount in USD"
+      - name: fee_type
+        description: "Fee type classification"
+
+  - name: interest_rate_tiers
+    description: "Interest rate tiers by product and balance"
+    columns:
+      - name: tier_id
+        description: "Unique tier identifier"
+        tests:
+          - unique
+          - not_null
+      - name: product_type
+        description: "Product type for rate tier"
+      - name: interest_rate
+        description: "Annual percentage rate"
+
+  - name: marketing_segments
+    description: "Customer segments for marketing campaigns"
+    columns:
+      - name: segment_id
+        description: "Unique segment identifier"
+        tests:
+          - unique
+          - not_null
+      - name: segment_name
+        description: "Segment display name"
+      - name: priority_level
+        description: "Marketing priority level"
+
+  - name: lifecycle_stages
+    description: "Customer lifecycle stages and transitions"
+    columns:
+      - name: stage_id
+        description: "Unique stage identifier"
+        tests:
+          - unique
+          - not_null
+      - name: stage_name
+        description: "Lifecycle stage name"
+      - name: typical_duration_months
+        description: "Expected duration in this stage"
+
+  - name: service_level_agreements
+    description: "Service level agreements by customer tier"
+    columns:
+      - name: sla_id
+        description: "Unique SLA identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_tier
+        description: "Customer tier classification"
+      - name: response_time_hours
+        description: "Maximum response time in hours"
+
+  - name: holiday_calendars
+    description: "Bank holidays affecting processing schedules"
+    columns:
+      - name: holiday_id
+        description: "Unique holiday identifier"
+        tests:
+          - unique
+          - not_null
+      - name: holiday_name
+        description: "Holiday display name"
+      - name: holiday_date
+        description: "Date of holiday"
+      - name: affects_processing
+        description: "Whether holiday affects transaction processing"
+
+  - name: economic_indicators
+    description: "Economic indicators affecting lending and risk"
+    columns:
+      - name: indicator_id
+        description: "Unique indicator identifier"
+        tests:
+          - unique
+          - not_null
+      - name: indicator_name
+        description: "Economic indicator name"
+      - name: current_value
+        description: "Current indicator value"
+      - name: impact_on_lending
+        description: "Impact level on lending decisions" 

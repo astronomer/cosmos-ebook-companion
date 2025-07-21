@@ -1,0 +1,11 @@
+fee_id,fee_name,product_type,fee_amount,fee_type,waiver_conditions
+FEE001,Monthly Maintenance,checking,12.00,recurring,minimum_balance_2500
+FEE002,Overdraft Fee,checking,35.00,per_transaction,overdraft_protection
+FEE003,ATM Fee,all,3.50,per_transaction,own_network_atm
+FEE004,Wire Transfer Fee,all,25.00,per_transaction,premium_account
+FEE005,Foreign Transaction,credit_card,2.50,percentage,no_foreign_fee_card
+FEE006,Late Payment Fee,credit_card,39.00,per_occurrence,autopay_enrolled
+FEE007,Annual Fee,credit_card,95.00,annual,spending_threshold_25000
+FEE008,Early Withdrawal,certificate,50.00,penalty,emergency_withdrawal
+FEE009,Account Closure,all,25.00,per_closure,account_age_12_months
+FEE010,Paper Statement,all,5.00,monthly,electronic_statements 

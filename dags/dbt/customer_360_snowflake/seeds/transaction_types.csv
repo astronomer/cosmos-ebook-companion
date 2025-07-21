@@ -1,0 +1,11 @@
+transaction_type_id,type_name,category,description,is_debit,risk_weight,fee_applicable
+TXN001,ACH Deposit,deposit,Automated Clearing House deposit,false,0.1,false
+TXN002,Wire Transfer,transfer,Wire transfer in or out,true,0.5,true
+TXN003,ATM Withdrawal,withdrawal,ATM cash withdrawal,true,0.2,true
+TXN004,Debit Purchase,purchase,Point of sale debit transaction,true,0.1,false
+TXN005,Credit Purchase,purchase,Credit card purchase,true,0.2,false
+TXN006,Check Deposit,deposit,Physical or mobile check deposit,false,0.3,false
+TXN007,Online Transfer,transfer,Online banking transfer,true,0.1,false
+TXN008,International Wire,transfer,International wire transfer,true,1.0,true
+TXN009,Cash Deposit,deposit,Branch or ATM cash deposit,false,0.2,false
+TXN010,Loan Payment,payment,Payment toward loan balance,true,0.1,false 

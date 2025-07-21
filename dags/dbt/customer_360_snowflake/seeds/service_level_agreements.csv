@@ -1,0 +1,11 @@
+sla_id,customer_tier,response_time_hours,resolution_time_hours,availability_percentage,dedicated_support
+SLA001,Basic,24,72,99.0,false
+SLA002,Standard,12,48,99.5,false
+SLA003,Premium,4,24,99.8,true
+SLA004,Private,2,12,99.9,true
+SLA005,Institutional,1,8,99.95,true
+SLA006,Student,48,120,98.0,false
+SLA007,Small Business,8,48,99.5,false
+SLA008,Commercial,4,24,99.8,true
+SLA009,VIP,1,4,99.99,true
+SLA010,Emergency,0.5,2,99.99,true 

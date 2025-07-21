@@ -1,0 +1,168 @@
+version: 2
+
+models:
+  # ========================================
+  # EXECUTIVE & STRATEGIC MARTS
+  # ========================================
+  
+  - name: executive_customer_dashboard
+    description: >
+      Ultimate C-suite executive dashboard combining ALL intermediate models.
+      Provides comprehensive customer portfolio health, strategic insights, 
+      and executive-level KPIs across risk, finance, digital transformation,
+      retention, and growth opportunities.
+    columns:
+      - name: dashboard_section
+        description: Dashboard section identifier (EXECUTIVE_SUMMARY, SEGMENT_PERFORMANCE)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['EXECUTIVE_SUMMARY', 'SEGMENT_PERFORMANCE']
+      - name: total_customers
+        description: Total customers in the portfolio
+        tests:
+          - not_null
+      - name: high_value_percentage
+        description: Percentage of high-value customers
+      - name: portfolio_health
+        description: Overall portfolio health assessment
+        tests:
+          - accepted_values:
+              values: ['STRONG_VALUE_MIX', 'BALANCED_PORTFOLIO', 'GROWTH_OPPORTUNITY']
+      - name: digital_maturity
+        description: Digital transformation maturity level
+        tests:
+          - accepted_values:
+              values: ['DIGITAL_LEADER', 'DIGITAL_PROGRESSIVE', 'DIGITAL_OPPORTUNITY']
+
+  - name: financial_performance_summary
+    description: >
+      Executive-level financial performance dashboard for CFO/CRO insights.
+      Combines account profitability, customer financial relationships,
+      transaction volumes, product penetration, and risk-adjusted returns.
+    columns:
+      - name: total_customers
+        description: Total customer count in financial portfolio
+        tests:
+          - not_null
+      - name: total_aum
+        description: Total assets under management
+        tests:
+          - not_null
+      - name: annual_net_revenue
+        description: Total annual net revenue from portfolio
+      - name: portfolio_yield_assessment
+        description: Portfolio yield performance classification
+        tests:
+          - accepted_values:
+              values: ['HIGH_YIELD_PORTFOLIO', 'STRONG_YIELD', 'MODERATE_YIELD', 'YIELD_IMPROVEMENT_NEEDED']
+
+  # ========================================
+  # RISK & OPERATIONS MARTS
+  # ========================================
+
+  - name: risk_management_dashboard
+    description: >
+      Comprehensive risk monitoring dashboard for CRO/Chief Compliance Officer.
+      Provides risk portfolio analysis, compliance status, fraud monitoring,
+      and regulatory reporting metrics with wealth tier risk breakdowns.
+    columns:
+      - name: dashboard_section
+        description: Dashboard section (RISK_OVERVIEW, WEALTH_TIER_RISK_BREAKDOWN)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['RISK_OVERVIEW', 'WEALTH_TIER_RISK_BREAKDOWN']
+      - name: total_customers
+        description: Total customers in risk portfolio
+        tests:
+          - not_null
+      - name: critical_risk_customers
+        description: Count of customers in critical risk category
+      - name: portfolio_risk_status
+        description: Overall portfolio risk assessment
+        tests:
+          - accepted_values:
+              values: ['CRITICAL_RISK_PORTFOLIO', 'HIGH_RISK_CONCENTRATION', 'COMPLIANCE_ISSUES', 'RISK_DETERIORATION', 'MANAGED_RISK_PROFILE']
+      - name: compliance_health_status
+        description: Regulatory compliance health status
+        tests:
+          - accepted_values:
+              values: ['COMPLIANCE_CRISIS', 'COMPLIANCE_ATTENTION_NEEDED', 'COMPLIANCE_MONITORING_REQUIRED', 'COMPLIANCE_HEALTHY']
+      - name: recommended_action
+        description: Risk management recommended action
+        tests:
+          - accepted_values:
+              values: ['IMMEDIATE_RISK_COMMITTEE_MEETING', 'COMPLIANCE_REMEDIATION_PLAN', 'FRAUD_INVESTIGATION_SURGE', 'HIGH_VALUE_CUSTOMER_REVIEW', 'STANDARD_RISK_MONITORING']
+
+  # ========================================
+  # CUSTOMER & MARKETING MARTS
+  # ========================================
+
+  - name: customer_segmentation_analysis
+    description: >
+      Comprehensive customer segmentation and marketing effectiveness analysis
+      for CMO/Marketing Director. Includes segment performance, digital adoption,
+      product penetration, marketing responsiveness, and retention patterns.
+    columns:
+      - name: analysis_section
+        description: Analysis section (SEGMENT_OVERVIEW, LIFECYCLE_ANALYSIS)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['SEGMENT_OVERVIEW', 'LIFECYCLE_ANALYSIS']
+      - name: customer_value_segment
+        description: Customer value segment or lifecycle stage name
+      - name: segment_customer_count
+        description: Number of customers in the segment
+      - name: segment_strategic_importance
+        description: Strategic importance classification of the segment
+        tests:
+          - accepted_values:
+              values: ['PRIMARY_VALUE_DRIVER', 'MAJOR_CONTRIBUTOR', 'SIGNIFICANT_SEGMENT', 'NICHE_SEGMENT', 'LIFECYCLE_STAGE']
+      - name: marketing_effectiveness
+        description: Marketing campaign effectiveness for the segment
+        tests:
+          - accepted_values:
+              values: ['HIGHLY_MARKETABLE', 'MODERATELY_MARKETABLE', 'SELECTIVE_MARKETING', 'MARKETING_CHALLENGE']
+      - name: digital_strategy_classification
+        description: Digital strategy classification for the segment
+        tests:
+          - accepted_values:
+              values: ['DIGITAL_NATIVE', 'DIGITAL_ADOPTER', 'DIGITAL_OPPORTUNITY', 'TRADITIONAL_PREFERRED']
+
+  # ========================================
+  # PRODUCT & REVENUE MARTS  
+  # ========================================
+
+  - name: product_performance_analytics
+    description: >
+      Comprehensive product performance and revenue analysis for Chief Product Officer.
+      Includes product adoption rates, cross-sell opportunities, product profitability,
+      customer lifecycle product journeys, and channel effectiveness for product sales.
+    columns:
+      - name: analytics_section
+        description: Analytics section identifier
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PRODUCT_PORTFOLIO_OVERVIEW', 'SEGMENT_PRODUCT_PERFORMANCE', 'NEXT_BEST_PRODUCT_OPPORTUNITIES']
+      - name: total_customers
+        description: Total customers or product name for next best product analysis
+      - name: deposit_penetration_rate
+        description: Deposit product penetration rate percentage
+      - name: cross_sell_performance_status
+        description: Cross-sell performance assessment
+        tests:
+          - accepted_values:
+              values: ['EXCELLENT_CROSS_SELL_PERFORMANCE', 'STRONG_CROSS_SELL_PERFORMANCE', 'MODERATE_CROSS_SELL_PERFORMANCE', 'CROSS_SELL_IMPROVEMENT_NEEDED', 'NEXT_BEST_PRODUCT']
+      - name: digital_product_maturity
+        description: Digital product adoption maturity level
+        tests:
+          - accepted_values:
+              values: ['DIGITAL_PRODUCT_LEADER', 'DIGITAL_PROGRESSIVE', 'DIGITAL_DEVELOPING', 'DIGITAL_TRANSFORMATION_NEEDED']
+      - name: recommended_product_strategy
+        description: Recommended product strategy based on analysis
+        tests:
+          - accepted_values:
+              values: ['AGGRESSIVE_CROSS_SELL_CAMPAIGN', 'WEALTH_PRODUCT_FOCUS', 'DIGITAL_PRODUCT_ENHANCEMENT', 'PRODUCT_BUNDLING_STRATEGY', 'OPTIMIZE_CURRENT_PORTFOLIO'] 

@@ -1,0 +1,11 @@
+product_id,product_name,product_type,category,min_balance,monthly_fee,interest_rate,risk_level
+CHCK001,Basic Checking,account,banking,0,5.00,0.01,Low
+SAVE001,High Yield Savings,account,banking,1000,0,2.50,Low
+CRDT001,Platinum Credit Card,credit_card,lending,0,95.00,18.99,Medium
+LOAN001,Personal Loan,loan,lending,0,0,8.50,Medium
+MORT001,30-Year Fixed Mortgage,mortgage,lending,0,0,6.75,High
+INVT001,Brokerage Account,investment,investments,2500,0,0,High
+INSUR001,Auto Insurance,insurance,insurance,0,85.00,0,Low
+CD001,12-Month CD,certificate,banking,5000,0,4.25,Low
+BUSI001,Business Checking,account,commercial,2500,15.00,0.50,Medium
+CRED002,Cash Back Credit Card,credit_card,lending,0,0,21.99,Medium 

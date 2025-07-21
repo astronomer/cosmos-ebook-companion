@@ -1,0 +1,11 @@
+country_code,country_name,risk_rating,economic_stability,political_stability,regulatory_environment
+US,United States,AAA,Stable,Stable,Excellent
+CA,Canada,AA+,Stable,Stable,Excellent
+UK,United Kingdom,AA,Stable,Moderate,Good
+DE,Germany,AAA,Stable,Stable,Excellent
+JP,Japan,A+,Moderate,Stable,Good
+AU,Australia,AAA,Stable,Stable,Excellent
+CH,Switzerland,AAA,Stable,Stable,Excellent
+SG,Singapore,AAA,Stable,Stable,Excellent
+MX,Mexico,BBB,Moderate,Moderate,Moderate
+BR,Brazil,BB,Moderate,Unstable,Moderate 

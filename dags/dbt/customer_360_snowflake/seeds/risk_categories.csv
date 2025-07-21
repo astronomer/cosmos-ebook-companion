@@ -1,0 +1,11 @@
+risk_category_id,risk_level,risk_name,score_min,score_max,description,monitoring_frequency,approval_required
+RC001,1,Minimal Risk,800,850,Excellent credit with minimal risk,Annual,false
+RC002,2,Low Risk,740,799,Good credit with low risk profile,Semi-Annual,false
+RC003,3,Moderate Risk,670,739,Fair credit requiring standard monitoring,Quarterly,false
+RC004,4,Elevated Risk,580,669,Below average credit requiring closer monitoring,Monthly,true
+RC005,5,High Risk,500,579,Poor credit requiring intensive monitoring,Weekly,true
+RC006,6,Severe Risk,300,499,Very poor credit requiring manual review,Daily,true
+RC007,7,Critical Risk,0,299,Extremely poor credit or fraud indicators,Real-time,true
+RC008,8,Regulatory Watch,0,850,Subject to enhanced regulatory monitoring,Daily,true
+RC009,9,Sanctions Risk,0,850,Potential sanctions or politically exposed,Real-time,true
+RC010,10,Fraud Alert,0,850,Active fraud investigation or suspicion,Real-time,true 

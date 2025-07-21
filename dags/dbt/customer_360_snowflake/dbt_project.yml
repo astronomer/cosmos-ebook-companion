@@ -1,0 +1,98 @@
+name: 'customer_360'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'customer_360'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuring models with medallion architecture
+models:
+  customer_360:
+    # Bronze/Staging Layer - Raw data cleaning
+    staging:
+      +materialized: view
+      +tags: ["bronze", "staging"]
+    
+    # Silver/Intermediate Layer - Business logic aggregations
+    intermediate:
+      +materialized: view
+      +tags: ["silver", "intermediate"]
+      customer_analytics:
+        +tags: ["silver", "intermediate", "customer_analytics"]
+      financial_metrics:
+        +tags: ["silver", "intermediate", "financial_metrics"]
+      product_analytics:
+        +tags: ["silver", "intermediate", "product_analytics"]
+      risk_analytics:
+        +tags: ["silver", "intermediate", "risk_analytics"]
+    
+    # Gold/Marts Layer - Business-ready analytics
+    marts:
+      +materialized: table
+      +tags: ["gold", "mart"]
+      executive:
+        +materialized: table
+        +tags: ["gold", "mart", "executive"]
+      customer_marketing:
+        +materialized: table
+        +tags: ["gold", "mart", "customer_marketing"]
+      risk_operations:
+        +materialized: table
+        +tags: ["gold", "mart", "risk_operations"]
+      product_revenue:
+        +materialized: table
+        +tags: ["gold", "mart", "product_revenue"]
+
+# Seeds configuration
+seeds:
+  customer_360:
+    +materialized: seed
+    +tags: ["reference_data"]
+
+# Advanced configurations
+vars:
+  # Data volume controls (for load testing)
+  num_customers: 10
+  num_addresses_multiplier: 1.5   # 1.5x customers = some have multiple addresses
+  num_phones_multiplier: 1.7      # 1.7x customers = some have multiple phones  
+  num_accounts_multiplier: 2.4    # 2.4x customers = most have multiple accounts
+  
+  # Date ranges
+  start_date: '2020-01-01'
+  current_date: '2025-01-01'
+  
+  # Business thresholds
+  high_value_threshold: 100000
+  medium_value_threshold: 25000
+  active_days_threshold: 30
+  risk_score_threshold: 700
+  
+  # Financial thresholds
+  large_transaction_threshold: 10000
+  frequent_transaction_threshold: 50
+  credit_utilization_threshold: 0.8
+
+# Snapshot configurations (commented out - not using snapshots)
+# snapshots:
+#   customer_360:
+#     +target_schema: snapshots
+#     +strategy: timestamp
+#     +updated_at: updated_at
+
+# Test configurations
+tests:
+  customer_360:
+    +store_failures: true
+    +schema: test_failures 

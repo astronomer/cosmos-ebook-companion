@@ -1,0 +1,319 @@
+version: 2
+
+models:
+  # Core Customer Data
+  - name: stg_customers
+    description: "Staging model for customer master data with demographic and risk enrichment"
+    columns:
+      - name: customer_id
+        description: "Primary key for customer"
+        tests:
+          - unique
+          - not_null
+      - name: customer_number
+        description: "Formatted customer number"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "Customer first name"
+        tests:
+          - not_null
+      - name: last_name
+        description: "Customer last name"
+        tests:
+          - not_null
+      - name: email_address
+        description: "Primary email address"
+        tests:
+          - not_null
+      - name: credit_score
+        description: "Customer credit score"
+        tests:
+          - not_null
+
+  - name: stg_customer_addresses
+    description: "Staging model for customer address information"
+    columns:
+      - name: address_id
+        description: "Primary key for address"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to customers"
+        tests:
+          - not_null
+
+  - name: stg_customer_phones
+    description: "Staging model for customer phone information"
+    columns:
+      - name: phone_id
+        description: "Primary key for phone"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to customers"
+        tests:
+          - not_null
+
+  - name: stg_accounts
+    description: "Staging model for customer accounts"
+    columns:
+      - name: account_id
+        description: "Primary key for account"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to customers"
+        tests:
+          - not_null
+      - name: product_type
+        description: "Type of account product"
+        tests:
+          - not_null
+      - name: account_status
+        description: "Current account status"
+        tests:
+          - accepted_values:
+              values: ['ACTIVE', 'CLOSED', 'DORMANT', 'RESTRICTED']
+
+  # Transaction Data
+  - name: stg_transactions
+    description: "Staging model for all customer transactions"
+    columns:
+      - name: transaction_id
+        description: "Primary key for transaction"
+        tests:
+          - unique
+          - not_null
+      - name: account_id
+        description: "Foreign key to accounts"
+        tests:
+          - not_null
+
+  - name: stg_deposits
+    description: "Staging model for deposit transactions"
+    columns:
+      - name: deposit_id
+        description: "Primary key for deposit"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_withdrawals
+    description: "Staging model for withdrawal transactions"
+    columns:
+      - name: withdrawal_id
+        description: "Primary key for withdrawal"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_transfers
+    description: "Staging model for transfer transactions"
+    columns:
+      - name: transfer_id
+        description: "Primary key for transfer"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payments
+    description: "Staging model for payment transactions"
+    columns:
+      - name: payment_id
+        description: "Primary key for payment"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_fees
+    description: "Staging model for bank fees"
+    columns:
+      - name: fee_id
+        description: "Primary key for fee"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_interest_accruals
+    description: "Staging model for interest accruals"
+    columns:
+      - name: accrual_id
+        description: "Primary key for accrual"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_account_balances
+    description: "Staging model for account balances"
+    columns:
+      - name: balance_id
+        description: "Primary key for balance"
+        tests:
+          - unique
+          - not_null
+
+  # Credit and Lending
+  - name: stg_cards
+    description: "Staging model for credit and debit cards"
+    columns:
+      - name: card_id
+        description: "Primary key for card"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_loans
+    description: "Staging model for loan products"
+    columns:
+      - name: loan_id
+        description: "Primary key for loan"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_credit_scores
+    description: "Staging model for credit score history"
+    columns:
+      - name: score_id
+        description: "Primary key for score"
+        tests:
+          - unique
+          - not_null
+      - name: credit_score
+        description: "Credit score value"
+        tests:
+          - not_null
+
+  # Investments and Insurance
+  - name: stg_investments
+    description: "Staging model for investment holdings"
+    columns:
+      - name: holding_id
+        description: "Primary key for holding"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_insurance_policies
+    description: "Staging model for insurance policies"
+    columns:
+      - name: policy_id
+        description: "Primary key for policy"
+        tests:
+          - unique
+          - not_null
+
+  # Customer Service and Engagement
+  - name: stg_customer_interactions
+    description: "Staging model for customer service interactions"
+    columns:
+      - name: interaction_id
+        description: "Primary key for interaction"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_marketing_campaigns
+    description: "Staging model for marketing campaigns"
+    columns:
+      - name: campaign_response_id
+        description: "Primary key for campaign response"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_digital_activity
+    description: "Staging model for digital banking activity"
+    columns:
+      - name: activity_id
+        description: "Primary key for activity"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_channel_usage
+    description: "Staging model for channel usage metrics"
+    columns:
+      - name: usage_id
+        description: "Primary key for usage"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_product_usage
+    description: "Staging model for product usage metrics"
+    columns:
+      - name: usage_id
+        description: "Primary key for usage"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_customer_segments
+    description: "Staging model for customer segmentation"
+    columns:
+      - name: segment_id
+        description: "Primary key for segment"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_retention_events
+    description: "Staging model for customer retention events"
+    columns:
+      - name: event_id
+        description: "Primary key for event"
+        tests:
+          - unique
+          - not_null
+
+  # Risk and Compliance
+  - name: stg_risk_assessments
+    description: "Staging model for risk assessments"
+    columns:
+      - name: assessment_id
+        description: "Primary key for assessment"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_kyc_records
+    description: "Staging model for KYC compliance records"
+    columns:
+      - name: kyc_id
+        description: "Primary key for KYC record"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_compliance_records
+    description: "Staging model for compliance tracking"
+    columns:
+      - name: compliance_id
+        description: "Primary key for compliance record"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_fraud_alerts
+    description: "Staging model for fraud detection alerts"
+    columns:
+      - name: alert_id
+        description: "Primary key for alert"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_account_alerts
+    description: "Staging model for account alerts"
+    columns:
+      - name: alert_id
+        description: "Primary key for alert"
+        tests:
+          - unique
+          - not_null 

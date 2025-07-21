@@ -1,0 +1,11 @@
+stage_id,stage_name,typical_duration_months,next_stage,characteristics
+LS001,Prospect,1,Onboarding,Potential customer showing interest
+LS002,Onboarding,2,New Customer,Recently opened first account
+LS003,New Customer,6,Growing,Learning product features and usage
+LS004,Growing,12,Established,Adding products and increasing usage
+LS005,Established,36,Mature,Stable relationship with multiple products
+LS006,Mature,60,Loyal,Long-term customer with deep relationship
+LS007,Loyal,120,Champion,Highly satisfied advocating for bank
+LS008,Champion,999,Champion,Top tier customer with referrals
+LS009,At Risk,3,Dormant,Declining usage or satisfaction
+LS010,Dormant,6,Churned,Inactive account minimal activity 

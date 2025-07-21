@@ -1,0 +1,11 @@
+rule_id,rule_name,rule_type,threshold,action_required,severity_level
+CR001,Large Cash Transaction,transaction,10000,File CTR,High
+CR002,Suspicious Activity,behavior,5000,File SAR,Critical
+CR003,Rapid Account Turnover,account,10,Enhanced Monitoring,Medium
+CR004,High-Risk Geography,location,0,Enhanced Due Diligence,High
+CR005,Structuring Pattern,transaction,9999,Immediate Review,Critical
+CR006,Politically Exposed Person,customer,0,Enhanced Monitoring,High
+CR007,Sanctions List Match,customer,0,Block Transaction,Critical
+CR008,Unusual Wire Activity,transaction,25000,Manual Review,Medium
+CR009,Identity Verification Failure,onboarding,0,Account Restriction,High
+CR010,Data Privacy Violation,data,0,Immediate Remediation,Critical 

@@ -1,0 +1,11 @@
+currency_code,currency_name,symbol,decimal_places,exchange_rate_usd,is_major_currency
+USD,US Dollar,$,2,1.0000,true
+EUR,Euro,€,2,0.8500,true
+GBP,British Pound,£,2,0.7500,true
+JPY,Japanese Yen,¥,0,110.0000,true
+CAD,Canadian Dollar,C$,2,1.2500,true
+AUD,Australian Dollar,A$,2,1.3500,true
+CHF,Swiss Franc,CHF,2,0.9200,true
+CNY,Chinese Yuan,¥,2,6.4500,true
+MXN,Mexican Peso,$,2,20.0000,false
+BRL,Brazilian Real,R$,2,5.2000,false 

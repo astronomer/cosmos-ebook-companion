@@ -1,0 +1,11 @@
+bracket_id,bracket_name,min_income,max_income,percentile_range,target_products,marketing_priority
+IB001,Low Income,0,25000,0-20,Basic banking,Medium
+IB002,Lower Middle,25001,50000,20-40,Standard products,High
+IB003,Middle Income,50001,75000,40-60,Full product suite,High
+IB004,Upper Middle,75001,100000,60-75,Premium products,Very High
+IB005,High Income,100001,150000,75-90,Wealth management,Very High
+IB006,Affluent,150001,250000,90-95,Private banking,Critical
+IB007,High Net Worth,250001,500000,95-98,Private wealth,Critical
+IB008,Ultra High Net Worth,500001,1000000,98-99,Family office,Critical
+IB009,Very Wealthy,1000001,5000000,99-99.5,Institutional,Critical
+IB010,Ultra Wealthy,5000001,999999999,99.5+,Ultra high net worth,Critical 

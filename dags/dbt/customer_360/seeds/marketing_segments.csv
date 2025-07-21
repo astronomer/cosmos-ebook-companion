@@ -1,0 +1,11 @@
+segment_id,segment_name,target_products,age_range,income_range,priority_level
+MS001,Young Professionals,checking|savings|credit_card,25-35,50000-100000,High
+MS002,Families,mortgage|savings|insurance,30-50,75000-150000,Very High
+MS003,Pre-Retirees,investment|retirement|insurance,50-65,100000-300000,Critical
+MS004,Retirees,fixed_income|estate_planning,65+,50000-200000,High
+MS005,Students,student_accounts|secured_cards,18-25,0-30000,Medium
+MS006,High Net Worth,private_banking|investment,35-70,500000+,Critical
+MS007,Small Business,business_accounts|lending,30-60,100000-500000,High
+MS008,Mass Market,basic_products,25-65,25000-75000,Medium
+MS009,Digital Native,mobile_products|tech_features,20-40,40000-120000,High
+MS010,Value Seekers,low_fee_products|high_yield,35-55,30000-80000,Medium 

@@ -1,0 +1,11 @@
+requirement_id,regulation_name,product_types,threshold_amount,reporting_frequency,mandatory_fields
+REG001,Bank Secrecy Act,all,10000,Daily,customer_id|transaction_amount|transaction_type
+REG002,Know Your Customer,account,0,Onboarding,identity_verified|address_verified|income_verified
+REG003,Anti-Money Laundering,all,3000,Real-time,source_of_funds|beneficiary_info|transaction_purpose
+REG004,Fair Credit Reporting,lending,0,Monthly,credit_score|credit_history|employment_verification
+REG005,Truth in Lending,lending,0,Disclosure,interest_rate|fees|payment_terms
+REG006,Community Reinvestment,mortgage,0,Annual,geographic_distribution|income_level|loan_purpose
+REG007,Dodd-Frank Stress Test,all,1000000000,Annual,capital_ratio|risk_weighted_assets|stress_scenarios
+REG008,Patriot Act,all,0,Onboarding,citizenship_status|foreign_accounts|sanctions_screening
+REG009,GDPR Data Protection,all,0,Ongoing,data_consent|privacy_notice|data_retention
+REG010,Fair Debt Collection,lending,0,Monthly,collection_actions|payment_history|dispute_resolution 

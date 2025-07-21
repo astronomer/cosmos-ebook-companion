@@ -1,0 +1,11 @@
+indicator_id,indicator_name,current_value,unit,trend,impact_on_lending
+EI001,Federal Funds Rate,5.25,percentage,stable,high
+EI002,Unemployment Rate,3.8,percentage,declining,medium
+EI003,Inflation Rate,3.2,percentage,stable,high
+EI004,GDP Growth,2.1,percentage,stable,medium
+EI005,Consumer Confidence,110.5,index,increasing,medium
+EI006,Housing Price Index,298.4,index,increasing,high
+EI007,Credit Spread,150,basis_points,stable,high
+EI008,Stock Market Index,4850.2,points,increasing,low
+EI009,Bond Yield 10Y,4.35,percentage,stable,medium
+EI010,Dollar Index,103.2,index,stable,low 

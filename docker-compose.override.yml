@@ -1,0 +1,97 @@
+services:
+  postgres_data:
+    image: postgres:17
+    container_name: cosmos_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cosmos
+      POSTGRES_USER: cosmos_user
+      POSTGRES_PASSWORD: cosmos_password
+    ports:
+      - "5433:5432"  # Using 5433 to avoid conflict with Airflow's postgres on 5432
+    volumes:
+      - postgres_data:/include/postgres_data
+    networks:
+      - airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cosmos_user -d cosmos"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  spark-master:
+    image: apache/spark:4.0.0
+    container_name: cosmos_spark_master
+    restart: unless-stopped
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
+    ports:
+      - "8081:8080"  # Spark Master Web UI
+      - "7077:7077"  # Spark Master Port
+      - "10000:10000"  # Thrift Server Port
+    volumes:
+      - spark_data:/opt/spark/data
+    networks:
+      - airflow
+    command: |
+      bash -c "
+        /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host spark-master --port 7077 --webui-port 8080 &
+        sleep 10
+        /opt/spark/sbin/start-thriftserver.sh --master spark://spark-master:7077 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.server2.thrift.bind.host=0.0.0.0 &
+        wait
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  spark-worker:
+    image: apache/spark:4.0.0
+    container_name: cosmos_spark_worker
+    restart: unless-stopped
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2g
+      - SPARK_WORKER_CORES=2
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
+    ports:
+      - "8082:8081"  # Spark Worker Web UI
+    volumes:
+      - spark_data:/opt/spark/data
+    networks:
+      - airflow
+    command: |
+      bash -c "
+        /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --host spark-worker --port 8081 --webui-port 8081 spark://spark-master:7077
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  postgres_data:
+    driver: local
+  spark_data:
+    driver: local
+
+networks:
+  airflow:
+    external: false 

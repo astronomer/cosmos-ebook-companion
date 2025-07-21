@@ -1,0 +1,11 @@
+region_id,state_code,state_name,region_name,market_type,cost_of_living_index,population_density
+GR001,CA,California,West Coast,Urban,148.5,High
+GR002,TX,Texas,Southwest,Mixed,95.2,Medium
+GR003,NY,New York,Northeast,Urban,139.8,High
+GR004,FL,Florida,Southeast,Mixed,102.3,Medium
+GR005,IL,Illinois,Midwest,Urban,108.7,High
+GR006,MT,Montana,Mountain West,Rural,98.1,Low
+GR007,OH,Ohio,Midwest,Mixed,92.4,Medium
+GR008,WA,Washington,Pacific Northwest,Urban,118.9,Medium
+GR009,GA,Georgia,Southeast,Mixed,96.7,Medium
+GR010,CO,Colorado,Mountain West,Mixed,104.8,Medium 
