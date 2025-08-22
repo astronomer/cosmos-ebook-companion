@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: model1
+    description: This is a test model
+    meta:
+      cosmos:
+        operator_kwargs:
+            retries: 10
+        profile_config:
+          profile_name: my_other_profile
+          target_name: prod
+          profile_mapping:
+            conn_id: my_other_postgres_connection

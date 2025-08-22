@@ -1,0 +1,3 @@
+name: 'inject_dbt_vars'
+vars:
+    my_department: "NOTSET"

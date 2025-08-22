@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: slow_model
+    description: This is a test model

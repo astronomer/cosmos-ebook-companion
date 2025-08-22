@@ -1,0 +1,7 @@
+name: 'async_dbt_project'
+
+
+model-paths: ["models"]
+
+models:
+  async_dbt_project:

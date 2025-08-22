@@ -1,5 +1,7 @@
-FROM astrocrpublic.azurecr.io/runtime:3.0-4
+FROM astrocrpublic.azurecr.io/runtime:3.0-8
 
+## Code to install the various dbt packages into a virtual environment at build time 
+# (use if you can't install them in requirements.txt due to version conflicts)
 # install dbt-postgres into a virtual environment
 RUN python -m venv dbt_venv_postgres && source dbt_venv_postgres/bin/activate && \
     pip install --no-cache-dir dbt-postgres && deactivate
@@ -23,3 +25,8 @@ RUN python -m venv dbt_venv_bigquery && source dbt_venv_bigquery/bin/activate &&
 # install dbt-duckdb into a virtual environment
 RUN python -m venv dbt_venv_duckdb && source dbt_venv_duckdb/bin/activate && \
     pip install --no-cache-dir dbt-duckdb && deactivate
+
+# # Adding dbt Fusion 
+USER root
+RUN apt install -y curl
+RUN curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update

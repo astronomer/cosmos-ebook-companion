@@ -1,1 +1,7 @@
 name: 'simplest_dbt_project'
+
+
+model-paths: ["models"]
+
+models:
+  simplest_dbt_project:

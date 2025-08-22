@@ -1,0 +1,15 @@
+customer_360:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres_data
+      user: cosmos_user
+      password: "{{ env_var('COSMOS_POSTGRES_PASSWORD') }}"
+      port: 5432
+      dbname: cosmos
+      schema: cosmos
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10
+      retries: 1 

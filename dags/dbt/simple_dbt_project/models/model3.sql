@@ -1,0 +1,1 @@
+SELECT '{{ var("my_date") }}' as my_date

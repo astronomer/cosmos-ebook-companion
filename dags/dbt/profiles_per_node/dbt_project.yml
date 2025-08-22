@@ -1,0 +1,7 @@
+name: 'profiles_per_node'
+
+
+model-paths: ["models"]
+
+models:
+  profiles_per_node:

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: model1
+    description: This is a test model
+    meta:
+      cosmos:
+        operator_kwargs:
+            retries: 10

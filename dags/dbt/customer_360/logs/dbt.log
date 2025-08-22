@@ -1,0 +1,351 @@
+[0m12:10:30.381401 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10794bcb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109133890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091339d0>]}
+
+
+============================== 12:10:30.403688 | 9d961495-745e-420e-a4bd-dac40a5c13ee ==============================
+[0m12:10:30.403688 [info ] [MainThread]: Running with dbt=1.10.9
+[0m12:10:30.404031 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360', 'log_path': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/logs', 'cache_selected_only': 'False', 'target_path': 'None', 'no_print': 'None', 'fail_fast': 'False', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'empty': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'printer_width': '80', 'write_json': 'True', 'use_colors': 'True', 'invocation_command': 'dbt ls', 'warn_error': 'None', 'version_check': 'True', 'log_format': 'default', 'introspect': 'True', 'debug': 'False'}
+[0m12:10:30.406071 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Could not find profile named 'customer_360'
+[0m12:10:30.419110 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": false, "command_wall_clock_time": 0.1176495, "process_in_blocks": "0", "process_kernel_time": 0.119247, "process_mem_max_rss": "128598016", "process_out_blocks": "0", "process_user_time": 0.678508}
+[0m12:10:30.419525 [debug] [MainThread]: Command `dbt ls` failed at 12:10:30.419469 after 0.12 seconds
+[0m12:10:30.419734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10900fce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1091628d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108fbebe0>]}
+[0m12:10:30.419986 [debug] [MainThread]: Flushing usage events
+[0m12:10:31.136911 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:10:41.642702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10414bcb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105837890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1058379d0>]}
+
+
+============================== 12:10:41.645207 | 484f0b54-303c-4a00-a7d5-e67764429daa ==============================
+[0m12:10:41.645207 [info ] [MainThread]: Running with dbt=1.10.9
+[0m12:10:41.645529 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'debug': 'False', 'fail_fast': 'False', 'static_parser': 'True', 'use_colors': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360', 'quiet': 'False', 'log_cache_events': 'False', 'invocation_command': 'dbt ls', 'target_path': 'None', 'partial_parse': 'True', 'version_check': 'True', 'no_print': 'None', 'indirect_selection': 'eager', 'write_json': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'log_path': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/logs', 'introspect': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'printer_width': '80'}
+[0m12:10:43.057374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '484f0b54-303c-4a00-a7d5-e67764429daa', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10482bce0>]}
+[0m12:10:43.086284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '484f0b54-303c-4a00-a7d5-e67764429daa', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056bf790>]}
+[0m12:10:43.087409 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m12:10:43.148931 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m12:10:43.151547 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": false, "command_wall_clock_time": 1.549548, "process_in_blocks": "0", "process_kernel_time": 0.176132, "process_mem_max_rss": "115343360", "process_out_blocks": "0", "process_user_time": 0.820537}
+[0m12:10:43.151881 [debug] [MainThread]: Command `dbt ls` failed at 12:10:43.151826 after 1.55 seconds
+[0m12:10:43.152141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056d7550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056d7750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1059e1220>]}
+[0m12:10:43.152345 [debug] [MainThread]: Flushing usage events
+[0m12:10:43.814476 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:10:57.142235 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10614fcb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11152f890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11152f9d0>]}
+
+
+============================== 12:10:57.145647 | c3af3974-68ec-4601-8971-1542c6642477 ==============================
+[0m12:10:57.145647 [info ] [MainThread]: Running with dbt=1.10.9
+[0m12:10:57.146014 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/logs', 'empty': 'None', 'target_path': 'None', 'static_parser': 'True', 'profiles_dir': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360', 'log_cache_events': 'False', 'quiet': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'use_colors': 'True', 'debug': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'invocation_command': 'dbt deps', 'fail_fast': 'False', 'warn_error': 'None', 'printer_width': '80', 'no_print': 'None', 'use_experimental_parser': 'False'}
+[0m12:10:57.212542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c3af3974-68ec-4601-8971-1542c6642477', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10732bce0>]}
+[0m12:10:57.270952 [debug] [MainThread]: Set downloads directory='/var/folders/hm/tgdl9dqs2j18vhrsk7s6c1q80000gn/T/dbt-downloads-qmbndfhg'
+[0m12:10:57.271352 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m12:10:57.385870 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m12:10:57.387571 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m12:10:57.465511 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m12:10:57.475837 [info ] [MainThread]: Updating lock file in file path: /Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/package-lock.yml
+[0m12:10:57.477869 [debug] [MainThread]: Set downloads directory='/var/folders/hm/tgdl9dqs2j18vhrsk7s6c1q80000gn/T/dbt-downloads-1brvradx'
+[0m12:10:57.480082 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m12:10:57.797123 [info ] [MainThread]: Installed from version 1.1.1
+[0m12:10:57.797386 [info ] [MainThread]: Updated version available: 1.3.0
+[0m12:10:57.797584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'c3af3974-68ec-4601-8971-1542c6642477', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1113bff00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1117aa470>]}
+[0m12:10:57.797788 [info ] [MainThread]: 
+[0m12:10:57.797945 [info ] [MainThread]: Updates available for packages: ['dbt-labs/dbt_utils']                 
+Update your versions in packages.yml, then run dbt deps
+[0m12:10:57.800844 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.7062412, "process_in_blocks": "0", "process_kernel_time": 0.216149, "process_mem_max_rss": "121143296", "process_out_blocks": "0", "process_user_time": 0.828267}
+[0m12:10:57.801185 [debug] [MainThread]: Command `dbt deps` succeeded at 12:10:57.801127 after 0.71 seconds
+[0m12:10:57.801390 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11179d350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111392f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110bed220>]}
+[0m12:10:57.801580 [debug] [MainThread]: Flushing usage events
+[0m12:10:58.441272 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:11:02.313740 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106533cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107563890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1075639d0>]}
+
+
+============================== 12:11:02.316368 | 97aea7bd-e064-4f56-b166-d68be01464da ==============================
+[0m12:11:02.316368 [info ] [MainThread]: Running with dbt=1.10.9
+[0m12:11:02.316704 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'quiet': 'False', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'target_path': 'None', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'partial_parse': 'True', 'no_print': 'None', 'use_colors': 'True', 'log_path': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/logs', 'introspect': 'True', 'invocation_command': 'dbt ls', 'profiles_dir': '/Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360', 'empty': 'None', 'indirect_selection': 'eager', 'debug': 'False', 'static_parser': 'True', 'log_format': 'default', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'write_json': 'True'}
+[0m12:11:02.428861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106857ce0>]}
+[0m12:11:02.460502 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073ea8b0>]}
+[0m12:11:02.461621 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m12:11:02.523665 [debug] [MainThread]: checksum: 6543b8b248ceda473ef0d611849d5d909085b6b714afa9b515e9635faea7af23, vars: {}, profile: , target: , version: 1.10.9
+[0m12:11:02.524270 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m12:11:02.524489 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107402f50>]}
+[0m12:11:03.405455 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values`. Arguments to generic tests
+should be nested under the `arguments` property.`
+[0m12:11:03.405790 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10852a300>]}
+[0m12:11:03.668228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10928d1d0>]}
+[0m12:11:03.735851 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/target/manifest.json
+[0m12:11:03.738463 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/tamara.fingerlin/0_PARA/Projects/cosmos_ebook_repo/dags/dbt/customer_360/target/semantic_manifest.json
+[0m12:11:03.762201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109597ee0>]}
+[0m12:11:03.762561 [info ] [MainThread]: Found 43 models, 20 seeds, 196 data tests, 548 macros
+[0m12:11:03.762752 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '97aea7bd-e064-4f56-b166-d68be01464da', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109148050>]}
+[0m12:11:03.764553 [info ] [MainThread]: customer_360.marts.customer_marketing.customer_segmentation_analysis
+[0m12:11:03.764754 [info ] [MainThread]: customer_360.marts.executive.executive_customer_dashboard
+[0m12:11:03.764897 [info ] [MainThread]: customer_360.marts.executive.financial_performance_summary
+[0m12:11:03.765026 [info ] [MainThread]: customer_360.intermediate.financial_metrics.int_account_performance_dashboard
+[0m12:11:03.765151 [info ] [MainThread]: customer_360.intermediate.product_analytics.int_channel_effectiveness
+[0m12:11:03.765262 [info ] [MainThread]: customer_360.intermediate.risk_analytics.int_comprehensive_risk_profile
+[0m12:11:03.765372 [info ] [MainThread]: customer_360.intermediate.customer_analytics.int_customer_360_master
+[0m12:11:03.765480 [info ] [MainThread]: customer_360.intermediate.financial_metrics.int_customer_financial_summary
+[0m12:11:03.765592 [info ] [MainThread]: customer_360.intermediate.customer_analytics.int_customer_profile
+[0m12:11:03.765705 [info ] [MainThread]: customer_360.intermediate.customer_analytics.int_customer_retention_analytics
+[0m12:11:03.765822 [info ] [MainThread]: customer_360.intermediate.product_analytics.int_product_penetration_analysis
+[0m12:11:03.765930 [info ] [MainThread]: customer_360.intermediate.financial_metrics.int_transaction_analytics
+[0m12:11:03.766042 [info ] [MainThread]: customer_360.marts.product_revenue.product_performance_analytics
+[0m12:11:03.766150 [info ] [MainThread]: customer_360.marts.risk_operations.risk_management_dashboard
+[0m12:11:03.766258 [info ] [MainThread]: customer_360.staging.stg_account_alerts
+[0m12:11:03.766368 [info ] [MainThread]: customer_360.staging.stg_account_balances
+[0m12:11:03.766480 [info ] [MainThread]: customer_360.staging.stg_accounts
+[0m12:11:03.766587 [info ] [MainThread]: customer_360.staging.stg_cards
+[0m12:11:03.766694 [info ] [MainThread]: customer_360.staging.stg_channel_usage
+[0m12:11:03.766800 [info ] [MainThread]: customer_360.staging.stg_compliance_records
+[0m12:11:03.766908 [info ] [MainThread]: customer_360.staging.stg_credit_scores
+[0m12:11:03.767027 [info ] [MainThread]: customer_360.staging.stg_customer_addresses
+[0m12:11:03.767143 [info ] [MainThread]: customer_360.staging.stg_customer_interactions
+[0m12:11:03.767337 [info ] [MainThread]: customer_360.staging.stg_customer_phones
+[0m12:11:03.767477 [info ] [MainThread]: customer_360.staging.stg_customer_segments
+[0m12:11:03.767620 [info ] [MainThread]: customer_360.staging.stg_customers
+[0m12:11:03.767789 [info ] [MainThread]: customer_360.staging.stg_deposits
+[0m12:11:03.767917 [info ] [MainThread]: customer_360.staging.stg_digital_activity
+[0m12:11:03.768037 [info ] [MainThread]: customer_360.staging.stg_fees
+[0m12:11:03.768151 [info ] [MainThread]: customer_360.staging.stg_fraud_alerts
+[0m12:11:03.768263 [info ] [MainThread]: customer_360.staging.stg_insurance_policies
+[0m12:11:03.768371 [info ] [MainThread]: customer_360.staging.stg_interest_accruals
+[0m12:11:03.768478 [info ] [MainThread]: customer_360.staging.stg_investments
+[0m12:11:03.768713 [info ] [MainThread]: customer_360.staging.stg_kyc_records
+[0m12:11:03.768909 [info ] [MainThread]: customer_360.staging.stg_loans
+[0m12:11:03.769043 [info ] [MainThread]: customer_360.staging.stg_marketing_campaigns
+[0m12:11:03.769165 [info ] [MainThread]: customer_360.staging.stg_payments
+[0m12:11:03.769278 [info ] [MainThread]: customer_360.staging.stg_product_usage
+[0m12:11:03.769394 [info ] [MainThread]: customer_360.staging.stg_retention_events
+[0m12:11:03.769504 [info ] [MainThread]: customer_360.staging.stg_risk_assessments
+[0m12:11:03.769612 [info ] [MainThread]: customer_360.staging.stg_transactions
+[0m12:11:03.769723 [info ] [MainThread]: customer_360.staging.stg_transfers
+[0m12:11:03.769827 [info ] [MainThread]: customer_360.staging.stg_withdrawals
+[0m12:11:03.769934 [info ] [MainThread]: customer_360.age_cohorts
+[0m12:11:03.770042 [info ] [MainThread]: customer_360.channel_definitions
+[0m12:11:03.770146 [info ] [MainThread]: customer_360.compliance_rules
+[0m12:11:03.770351 [info ] [MainThread]: customer_360.country_risk_ratings
+[0m12:11:03.770552 [info ] [MainThread]: customer_360.credit_score_ranges
+[0m12:11:03.770670 [info ] [MainThread]: customer_360.currency_codes
+[0m12:11:03.770778 [info ] [MainThread]: customer_360.economic_indicators
+[0m12:11:03.770888 [info ] [MainThread]: customer_360.fee_structures
+[0m12:11:03.770994 [info ] [MainThread]: customer_360.geographic_regions
+[0m12:11:03.771100 [info ] [MainThread]: customer_360.holiday_calendars
+[0m12:11:03.771208 [info ] [MainThread]: customer_360.income_brackets
+[0m12:11:03.771313 [info ] [MainThread]: customer_360.interest_rate_tiers
+[0m12:11:03.771421 [info ] [MainThread]: customer_360.lifecycle_stages
+[0m12:11:03.771529 [info ] [MainThread]: customer_360.marketing_segments
+[0m12:11:03.771635 [info ] [MainThread]: customer_360.occupation_categories
+[0m12:11:03.771740 [info ] [MainThread]: customer_360.product_catalog
+[0m12:11:03.771844 [info ] [MainThread]: customer_360.regulatory_requirements
+[0m12:11:03.771946 [info ] [MainThread]: customer_360.risk_categories
+[0m12:11:03.772051 [info ] [MainThread]: customer_360.service_level_agreements
+[0m12:11:03.772158 [info ] [MainThread]: customer_360.transaction_types
+[0m12:11:03.772263 [info ] [MainThread]: customer_360.marts.accepted_values_customer_segmentation_analysis_analysis_section__SEGMENT_OVERVIEW__LIFECYCLE_ANALYSIS
+[0m12:11:03.772375 [info ] [MainThread]: customer_360.marts.accepted_values_customer_segmentation_analysis_digital_strategy_classification__DIGITAL_NATIVE__DIGITAL_ADOPTER__DIGITAL_OPPORTUNITY__TRADITIONAL_PREFERRED
+[0m12:11:03.772490 [info ] [MainThread]: customer_360.marts.accepted_values_customer_segmentation_analysis_marketing_effectiveness__HIGHLY_MARKETABLE__MODERATELY_MARKETABLE__SELECTIVE_MARKETING__MARKETING_CHALLENGE
+[0m12:11:03.772605 [info ] [MainThread]: customer_360.marts.accepted_values_customer_segmentation_analysis_segment_strategic_importance__PRIMARY_VALUE_DRIVER__MAJOR_CONTRIBUTOR__SIGNIFICANT_SEGMENT__NICHE_SEGMENT__LIFECYCLE_STAGE
+[0m12:11:03.772733 [info ] [MainThread]: customer_360.marts.accepted_values_executive_customer_dashboard_dashboard_section__EXECUTIVE_SUMMARY__SEGMENT_PERFORMANCE
+[0m12:11:03.772846 [info ] [MainThread]: customer_360.marts.accepted_values_executive_customer_dashboard_digital_maturity__DIGITAL_LEADER__DIGITAL_PROGRESSIVE__DIGITAL_OPPORTUNITY
+[0m12:11:03.772957 [info ] [MainThread]: customer_360.marts.accepted_values_executive_customer_dashboard_portfolio_health__STRONG_VALUE_MIX__BALANCED_PORTFOLIO__GROWTH_OPPORTUNITY
+[0m12:11:03.773069 [info ] [MainThread]: customer_360.marts.accepted_values_financial_performance_summary_portfolio_yield_assessment__HIGH_YIELD_PORTFOLIO__STRONG_YIELD__MODERATE_YIELD__YIELD_IMPROVEMENT_NEEDED
+[0m12:11:03.773181 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_account_performance_dashboard_account_risk_flag__IMMEDIATE_REVIEW_REQUIRED__ENHANCED_MONITORING__CUSTOMER_AT_RISK__DORMANT_ACCOUNT__NEGATIVE_BALANCE__NORMAL
+[0m12:11:03.773295 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_account_performance_dashboard_account_service_tier__PRIVATE_BANKING__WEALTH_MANAGEMENT__PREMIUM__PREFERRED__ACTIVE__STANDARD
+[0m12:11:03.773407 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_channel_effectiveness_channel_engagement_level__VERY_HIGH__HIGH__MEDIUM__LOW__MINIMAL__NONE
+[0m12:11:03.773520 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_channel_effectiveness_channel_preference__DIGITAL_ONLY__DIGITAL_FIRST__DIGITAL_PREFERRED__PHYSICAL_PREFERRED__OMNI_CHANNEL__PHYSICAL_ONLY__MINIMAL_USAGE
+[0m12:11:03.773634 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_channel_effectiveness_digital_session_quality__HIGH_QUALITY__MEDIUM_QUALITY__LOW_QUALITY__BRIEF_SESSIONS__NO_SESSIONS
+[0m12:11:03.773748 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_comprehensive_risk_profile_compliance_status__NON_COMPLIANT__REVIEW_REQUIRED__COMPLIANT__PENDING_VERIFICATION
+[0m12:11:03.773858 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_comprehensive_risk_profile_overall_risk_level__CRITICAL_RISK__HIGH_RISK__ELEVATED_RISK__MODERATE_RISK__LOW_RISK
+[0m12:11:03.773967 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_comprehensive_risk_profile_risk_trend__VOLATILE__DETERIORATING__UNSTABLE__STABLE
+[0m12:11:03.774076 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_360_master_executive_customer_tier__ULTRA_HIGH_NET_WORTH__HIGH_NET_WORTH__PLATINUM_CUSTOMER__GOLD_CUSTOMER__SILVER_CUSTOMER__BRONZE_CUSTOMER
+[0m12:11:03.774182 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_financial_summary_financial_risk_level__HIGH_RISK__MEDIUM_RISK__LOW_RISK
+[0m12:11:03.774291 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_financial_summary_wealth_tier__PRIVATE_BANKING__WEALTH_MANAGEMENT__PREFERRED__SELECT__STANDARD
+[0m12:11:03.774396 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_profile_digital_preference__MOBILE_PREFERRED__WEB_PREFERRED__MULTI_CHANNEL__NON_DIGITAL
+[0m12:11:03.774500 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_profile_engagement_level__HIGHLY_ENGAGED__MODERATELY_ENGAGED__LIGHTLY_ENGAGED__MINIMAL_ENGAGEMENT
+[0m12:11:03.774605 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_retention_analytics_retention_lifecycle_stage__CHURNED__HIGH_CHURN_RISK__DISSATISFIED__DISENGAGED__COMPLAINT_PATTERN__SUCCESSFULLY_RETAINED__LOYAL__STABLE
+[0m12:11:03.774717 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_customer_retention_analytics_retention_priority__WIN_BACK__CRITICAL__HIGH__MEDIUM__LOW__MONITOR
+[0m12:11:03.774827 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_product_penetration_analysis_digital_adoption_level__DIGITAL_NATIVE__DIGITAL_ADOPTER__DIGITAL_BEGINNER__NON_DIGITAL
+[0m12:11:03.774935 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_product_penetration_analysis_marketing_responsiveness__UNTARGETED__HIGHLY_RESPONSIVE__MODERATELY_RESPONSIVE__LIGHTLY_RESPONSIVE__UNRESPONSIVE
+[0m12:11:03.775051 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_transaction_analytics_activity_level__VERY_ACTIVE__ACTIVE__MODERATE__LIGHT__MINIMAL
+[0m12:11:03.775159 [info ] [MainThread]: customer_360.intermediate.accepted_values_int_transaction_analytics_spending_category__HIGH_SPENDER__MEDIUM_SPENDER__MODERATE_SPENDER__LOW_SPENDER
+[0m12:11:03.775267 [info ] [MainThread]: customer_360.marts.accepted_values_product_performance_analytics_analytics_section__PRODUCT_PORTFOLIO_OVERVIEW__SEGMENT_PRODUCT_PERFORMANCE__NEXT_BEST_PRODUCT_OPPORTUNITIES
+[0m12:11:03.775377 [info ] [MainThread]: customer_360.marts.accepted_values_product_performance_analytics_cross_sell_performance_status__EXCELLENT_CROSS_SELL_PERFORMANCE__STRONG_CROSS_SELL_PERFORMANCE__MODERATE_CROSS_SELL_PERFORMANCE__CROSS_SELL_IMPROVEMENT_NEEDED__NEXT_BEST_PRODUCT
+[0m12:11:03.775492 [info ] [MainThread]: customer_360.marts.accepted_values_product_performance_analytics_digital_product_maturity__DIGITAL_PRODUCT_LEADER__DIGITAL_PROGRESSIVE__DIGITAL_DEVELOPING__DIGITAL_TRANSFORMATION_NEEDED
+[0m12:11:03.775603 [info ] [MainThread]: customer_360.marts.accepted_values_product_performance_analytics_recommended_product_strategy__AGGRESSIVE_CROSS_SELL_CAMPAIGN__WEALTH_PRODUCT_FOCUS__DIGITAL_PRODUCT_ENHANCEMENT__PRODUCT_BUNDLING_STRATEGY__OPTIMIZE_CURRENT_PORTFOLIO
+[0m12:11:03.775710 [info ] [MainThread]: customer_360.marts.accepted_values_risk_management_dashboard_compliance_health_status__COMPLIANCE_CRISIS__COMPLIANCE_ATTENTION_NEEDED__COMPLIANCE_MONITORING_REQUIRED__COMPLIANCE_HEALTHY
+[0m12:11:03.775814 [info ] [MainThread]: customer_360.marts.accepted_values_risk_management_dashboard_dashboard_section__RISK_OVERVIEW__WEALTH_TIER_RISK_BREAKDOWN
+[0m12:11:03.775923 [info ] [MainThread]: customer_360.marts.accepted_values_risk_management_dashboard_portfolio_risk_status__CRITICAL_RISK_PORTFOLIO__HIGH_RISK_CONCENTRATION__COMPLIANCE_ISSUES__RISK_DETERIORATION__MANAGED_RISK_PROFILE
+[0m12:11:03.776029 [info ] [MainThread]: customer_360.marts.accepted_values_risk_management_dashboard_recommended_action__IMMEDIATE_RISK_COMMITTEE_MEETING__COMPLIANCE_REMEDIATION_PLAN__FRAUD_INVESTIGATION_SURGE__HIGH_VALUE_CUSTOMER_REVIEW__STANDARD_RISK_MONITORING
+[0m12:11:03.776135 [info ] [MainThread]: customer_360.staging.accepted_values_stg_accounts_account_status__ACTIVE__CLOSED__DORMANT__RESTRICTED
+[0m12:11:03.776235 [info ] [MainThread]: customer_360.not_null_age_cohorts_cohort_id
+[0m12:11:03.776338 [info ] [MainThread]: customer_360.not_null_channel_definitions_channel_id
+[0m12:11:03.776437 [info ] [MainThread]: customer_360.not_null_compliance_rules_rule_id
+[0m12:11:03.776536 [info ] [MainThread]: customer_360.not_null_country_risk_ratings_country_code
+[0m12:11:03.776641 [info ] [MainThread]: customer_360.not_null_credit_score_ranges_score_range_id
+[0m12:11:03.776742 [info ] [MainThread]: customer_360.not_null_currency_codes_currency_code
+[0m12:11:03.776841 [info ] [MainThread]: customer_360.marts.not_null_customer_segmentation_analysis_analysis_section
+[0m12:11:03.776945 [info ] [MainThread]: customer_360.not_null_economic_indicators_indicator_id
+[0m12:11:03.777046 [info ] [MainThread]: customer_360.marts.not_null_executive_customer_dashboard_dashboard_section
+[0m12:11:03.777146 [info ] [MainThread]: customer_360.marts.not_null_executive_customer_dashboard_total_customers
+[0m12:11:03.777422 [info ] [MainThread]: customer_360.not_null_fee_structures_fee_id
+[0m12:11:03.777542 [info ] [MainThread]: customer_360.marts.not_null_financial_performance_summary_total_aum
+[0m12:11:03.777657 [info ] [MainThread]: customer_360.marts.not_null_financial_performance_summary_total_customers
+[0m12:11:03.777770 [info ] [MainThread]: customer_360.not_null_geographic_regions_region_id
+[0m12:11:03.777880 [info ] [MainThread]: customer_360.not_null_holiday_calendars_holiday_id
+[0m12:11:03.778001 [info ] [MainThread]: customer_360.not_null_income_brackets_bracket_id
+[0m12:11:03.778110 [info ] [MainThread]: customer_360.intermediate.not_null_int_account_performance_dashboard_account_health_score
+[0m12:11:03.778264 [info ] [MainThread]: customer_360.intermediate.not_null_int_account_performance_dashboard_account_id
+[0m12:11:03.778423 [info ] [MainThread]: customer_360.intermediate.not_null_int_account_performance_dashboard_account_profitability_score
+[0m12:11:03.778546 [info ] [MainThread]: customer_360.intermediate.not_null_int_account_performance_dashboard_customer_id
+[0m12:11:03.778667 [info ] [MainThread]: customer_360.intermediate.not_null_int_channel_effectiveness_channel_diversity_score
+[0m12:11:03.778783 [info ] [MainThread]: customer_360.intermediate.not_null_int_channel_effectiveness_customer_id
+[0m12:11:03.778893 [info ] [MainThread]: customer_360.intermediate.not_null_int_channel_effectiveness_digital_adoption_score
+[0m12:11:03.779003 [info ] [MainThread]: customer_360.intermediate.not_null_int_comprehensive_risk_profile_composite_risk_score
+[0m12:11:03.779109 [info ] [MainThread]: customer_360.intermediate.not_null_int_comprehensive_risk_profile_customer_id
+[0m12:11:03.779219 [info ] [MainThread]: customer_360.intermediate.not_null_int_comprehensive_risk_profile_requires_enhanced_monitoring
+[0m12:11:03.779324 [info ] [MainThread]: customer_360.intermediate.not_null_int_comprehensive_risk_profile_requires_immediate_review
+[0m12:11:03.779431 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_360_master_churn_risk_score
+[0m12:11:03.779539 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_360_master_customer_id
+[0m12:11:03.779647 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_360_master_customer_lifetime_value_score
+[0m12:11:03.779752 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_360_master_next_best_action
+[0m12:11:03.779860 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_financial_summary_customer_id
+[0m12:11:03.779966 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_financial_summary_net_worth_with_bank
+[0m12:11:03.780069 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_financial_summary_product_penetration_score
+[0m12:11:03.780180 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_financial_summary_total_relationship_value
+[0m12:11:03.780310 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_profile_at_risk_customer
+[0m12:11:03.780417 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_profile_customer_id
+[0m12:11:03.780537 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_profile_full_name
+[0m12:11:03.780640 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_retention_analytics_churn_risk_score
+[0m12:11:03.780748 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_retention_analytics_customer_id
+[0m12:11:03.780851 [info ] [MainThread]: customer_360.intermediate.not_null_int_customer_retention_analytics_retention_opportunity_score
+[0m12:11:03.780970 [info ] [MainThread]: customer_360.intermediate.not_null_int_product_penetration_analysis_cross_sell_opportunity_score
+[0m12:11:03.781075 [info ] [MainThread]: customer_360.intermediate.not_null_int_product_penetration_analysis_customer_id
+[0m12:11:03.781183 [info ] [MainThread]: customer_360.intermediate.not_null_int_product_penetration_analysis_product_penetration_score
+[0m12:11:03.781290 [info ] [MainThread]: customer_360.intermediate.not_null_int_product_penetration_analysis_product_stickiness_score
+[0m12:11:03.781400 [info ] [MainThread]: customer_360.intermediate.not_null_int_transaction_analytics_account_id
+[0m12:11:03.781504 [info ] [MainThread]: customer_360.intermediate.not_null_int_transaction_analytics_digital_transaction_percentage
+[0m12:11:03.781611 [info ] [MainThread]: customer_360.intermediate.not_null_int_transaction_analytics_net_cash_flow
+[0m12:11:03.781728 [info ] [MainThread]: customer_360.intermediate.not_null_int_transaction_analytics_total_transaction_volume
+[0m12:11:03.781836 [info ] [MainThread]: customer_360.not_null_interest_rate_tiers_tier_id
+[0m12:11:03.781940 [info ] [MainThread]: customer_360.not_null_lifecycle_stages_stage_id
+[0m12:11:03.782045 [info ] [MainThread]: customer_360.not_null_marketing_segments_segment_id
+[0m12:11:03.782151 [info ] [MainThread]: customer_360.not_null_occupation_categories_occupation_id
+[0m12:11:03.782258 [info ] [MainThread]: customer_360.not_null_product_catalog_product_id
+[0m12:11:03.782365 [info ] [MainThread]: customer_360.marts.not_null_product_performance_analytics_analytics_section
+[0m12:11:03.782470 [info ] [MainThread]: customer_360.not_null_regulatory_requirements_requirement_id
+[0m12:11:03.782581 [info ] [MainThread]: customer_360.not_null_risk_categories_risk_category_id
+[0m12:11:03.782687 [info ] [MainThread]: customer_360.marts.not_null_risk_management_dashboard_dashboard_section
+[0m12:11:03.782791 [info ] [MainThread]: customer_360.marts.not_null_risk_management_dashboard_total_customers
+[0m12:11:03.782896 [info ] [MainThread]: customer_360.not_null_service_level_agreements_sla_id
+[0m12:11:03.783000 [info ] [MainThread]: customer_360.staging.not_null_stg_account_alerts_alert_id
+[0m12:11:03.783106 [info ] [MainThread]: customer_360.staging.not_null_stg_account_balances_balance_id
+[0m12:11:03.783239 [info ] [MainThread]: customer_360.staging.not_null_stg_accounts_account_id
+[0m12:11:03.783407 [info ] [MainThread]: customer_360.staging.not_null_stg_accounts_customer_id
+[0m12:11:03.783537 [info ] [MainThread]: customer_360.staging.not_null_stg_accounts_product_type
+[0m12:11:03.783690 [info ] [MainThread]: customer_360.staging.not_null_stg_cards_card_id
+[0m12:11:03.783806 [info ] [MainThread]: customer_360.staging.not_null_stg_channel_usage_usage_id
+[0m12:11:03.783920 [info ] [MainThread]: customer_360.staging.not_null_stg_compliance_records_compliance_id
+[0m12:11:03.784025 [info ] [MainThread]: customer_360.staging.not_null_stg_credit_scores_credit_score
+[0m12:11:03.784164 [info ] [MainThread]: customer_360.staging.not_null_stg_credit_scores_score_id
+[0m12:11:03.784289 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_addresses_address_id
+[0m12:11:03.784401 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_addresses_customer_id
+[0m12:11:03.784512 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_interactions_interaction_id
+[0m12:11:03.784624 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_phones_customer_id
+[0m12:11:03.784734 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_phones_phone_id
+[0m12:11:03.784843 [info ] [MainThread]: customer_360.staging.not_null_stg_customer_segments_segment_id
+[0m12:11:03.785047 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_credit_score
+[0m12:11:03.785176 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_customer_id
+[0m12:11:03.785287 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_customer_number
+[0m12:11:03.785505 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_email_address
+[0m12:11:03.785658 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_first_name
+[0m12:11:03.785784 [info ] [MainThread]: customer_360.staging.not_null_stg_customers_last_name
+[0m12:11:03.785902 [info ] [MainThread]: customer_360.staging.not_null_stg_deposits_deposit_id
+[0m12:11:03.786012 [info ] [MainThread]: customer_360.staging.not_null_stg_digital_activity_activity_id
+[0m12:11:03.786123 [info ] [MainThread]: customer_360.staging.not_null_stg_fees_fee_id
+[0m12:11:03.786229 [info ] [MainThread]: customer_360.staging.not_null_stg_fraud_alerts_alert_id
+[0m12:11:03.786337 [info ] [MainThread]: customer_360.staging.not_null_stg_insurance_policies_policy_id
+[0m12:11:03.786442 [info ] [MainThread]: customer_360.staging.not_null_stg_interest_accruals_accrual_id
+[0m12:11:03.786544 [info ] [MainThread]: customer_360.staging.not_null_stg_investments_holding_id
+[0m12:11:03.786656 [info ] [MainThread]: customer_360.staging.not_null_stg_kyc_records_kyc_id
+[0m12:11:03.786758 [info ] [MainThread]: customer_360.staging.not_null_stg_loans_loan_id
+[0m12:11:03.786861 [info ] [MainThread]: customer_360.staging.not_null_stg_marketing_campaigns_campaign_response_id
+[0m12:11:03.786963 [info ] [MainThread]: customer_360.staging.not_null_stg_payments_payment_id
+[0m12:11:03.787064 [info ] [MainThread]: customer_360.staging.not_null_stg_product_usage_usage_id
+[0m12:11:03.787162 [info ] [MainThread]: customer_360.staging.not_null_stg_retention_events_event_id
+[0m12:11:03.787265 [info ] [MainThread]: customer_360.staging.not_null_stg_risk_assessments_assessment_id
+[0m12:11:03.787367 [info ] [MainThread]: customer_360.staging.not_null_stg_transactions_account_id
+[0m12:11:03.787468 [info ] [MainThread]: customer_360.staging.not_null_stg_transactions_transaction_id
+[0m12:11:03.787569 [info ] [MainThread]: customer_360.staging.not_null_stg_transfers_transfer_id
+[0m12:11:03.787673 [info ] [MainThread]: customer_360.staging.not_null_stg_withdrawals_withdrawal_id
+[0m12:11:03.787778 [info ] [MainThread]: customer_360.not_null_transaction_types_transaction_type_id
+[0m12:11:03.787885 [info ] [MainThread]: customer_360.unique_age_cohorts_cohort_id
+[0m12:11:03.787987 [info ] [MainThread]: customer_360.unique_channel_definitions_channel_id
+[0m12:11:03.788086 [info ] [MainThread]: customer_360.unique_compliance_rules_rule_id
+[0m12:11:03.788187 [info ] [MainThread]: customer_360.unique_country_risk_ratings_country_code
+[0m12:11:03.788289 [info ] [MainThread]: customer_360.unique_credit_score_ranges_score_range_id
+[0m12:11:03.788387 [info ] [MainThread]: customer_360.unique_currency_codes_currency_code
+[0m12:11:03.788488 [info ] [MainThread]: customer_360.unique_economic_indicators_indicator_id
+[0m12:11:03.788586 [info ] [MainThread]: customer_360.unique_fee_structures_fee_id
+[0m12:11:03.788685 [info ] [MainThread]: customer_360.unique_geographic_regions_region_id
+[0m12:11:03.788787 [info ] [MainThread]: customer_360.unique_holiday_calendars_holiday_id
+[0m12:11:03.788891 [info ] [MainThread]: customer_360.unique_income_brackets_bracket_id
+[0m12:11:03.788992 [info ] [MainThread]: customer_360.intermediate.unique_int_account_performance_dashboard_account_id
+[0m12:11:03.789096 [info ] [MainThread]: customer_360.intermediate.unique_int_channel_effectiveness_customer_id
+[0m12:11:03.789196 [info ] [MainThread]: customer_360.intermediate.unique_int_comprehensive_risk_profile_customer_id
+[0m12:11:03.789298 [info ] [MainThread]: customer_360.intermediate.unique_int_customer_360_master_customer_id
+[0m12:11:03.789400 [info ] [MainThread]: customer_360.intermediate.unique_int_customer_financial_summary_customer_id
+[0m12:11:03.789505 [info ] [MainThread]: customer_360.intermediate.unique_int_customer_profile_customer_id
+[0m12:11:03.789606 [info ] [MainThread]: customer_360.intermediate.unique_int_customer_retention_analytics_customer_id
+[0m12:11:03.789708 [info ] [MainThread]: customer_360.intermediate.unique_int_product_penetration_analysis_customer_id
+[0m12:11:03.789807 [info ] [MainThread]: customer_360.intermediate.unique_int_transaction_analytics_account_id
+[0m12:11:03.789909 [info ] [MainThread]: customer_360.unique_interest_rate_tiers_tier_id
+[0m12:11:03.790010 [info ] [MainThread]: customer_360.unique_lifecycle_stages_stage_id
+[0m12:11:03.790110 [info ] [MainThread]: customer_360.unique_marketing_segments_segment_id
+[0m12:11:03.790216 [info ] [MainThread]: customer_360.unique_occupation_categories_occupation_id
+[0m12:11:03.790316 [info ] [MainThread]: customer_360.unique_product_catalog_product_id
+[0m12:11:03.790414 [info ] [MainThread]: customer_360.unique_regulatory_requirements_requirement_id
+[0m12:11:03.790534 [info ] [MainThread]: customer_360.unique_risk_categories_risk_category_id
+[0m12:11:03.790633 [info ] [MainThread]: customer_360.unique_service_level_agreements_sla_id
+[0m12:11:03.790733 [info ] [MainThread]: customer_360.staging.unique_stg_account_alerts_alert_id
+[0m12:11:03.790845 [info ] [MainThread]: customer_360.staging.unique_stg_account_balances_balance_id
+[0m12:11:03.790952 [info ] [MainThread]: customer_360.staging.unique_stg_accounts_account_id
+[0m12:11:03.791057 [info ] [MainThread]: customer_360.staging.unique_stg_cards_card_id
+[0m12:11:03.791164 [info ] [MainThread]: customer_360.staging.unique_stg_channel_usage_usage_id
+[0m12:11:03.791269 [info ] [MainThread]: customer_360.staging.unique_stg_compliance_records_compliance_id
+[0m12:11:03.791368 [info ] [MainThread]: customer_360.staging.unique_stg_credit_scores_score_id
+[0m12:11:03.791470 [info ] [MainThread]: customer_360.staging.unique_stg_customer_addresses_address_id
+[0m12:11:03.791574 [info ] [MainThread]: customer_360.staging.unique_stg_customer_interactions_interaction_id
+[0m12:11:03.791674 [info ] [MainThread]: customer_360.staging.unique_stg_customer_phones_phone_id
+[0m12:11:03.791779 [info ] [MainThread]: customer_360.staging.unique_stg_customer_segments_segment_id
+[0m12:11:03.791878 [info ] [MainThread]: customer_360.staging.unique_stg_customers_customer_id
+[0m12:11:03.791979 [info ] [MainThread]: customer_360.staging.unique_stg_customers_customer_number
+[0m12:11:03.792080 [info ] [MainThread]: customer_360.staging.unique_stg_deposits_deposit_id
+[0m12:11:03.792178 [info ] [MainThread]: customer_360.staging.unique_stg_digital_activity_activity_id
+[0m12:11:03.792276 [info ] [MainThread]: customer_360.staging.unique_stg_fees_fee_id
+[0m12:11:03.792376 [info ] [MainThread]: customer_360.staging.unique_stg_fraud_alerts_alert_id
+[0m12:11:03.792475 [info ] [MainThread]: customer_360.staging.unique_stg_insurance_policies_policy_id
+[0m12:11:03.792574 [info ] [MainThread]: customer_360.staging.unique_stg_interest_accruals_accrual_id
+[0m12:11:03.792676 [info ] [MainThread]: customer_360.staging.unique_stg_investments_holding_id
+[0m12:11:03.792777 [info ] [MainThread]: customer_360.staging.unique_stg_kyc_records_kyc_id
+[0m12:11:03.792876 [info ] [MainThread]: customer_360.staging.unique_stg_loans_loan_id
+[0m12:11:03.792979 [info ] [MainThread]: customer_360.staging.unique_stg_marketing_campaigns_campaign_response_id
+[0m12:11:03.793078 [info ] [MainThread]: customer_360.staging.unique_stg_payments_payment_id
+[0m12:11:03.793180 [info ] [MainThread]: customer_360.staging.unique_stg_product_usage_usage_id
+[0m12:11:03.793279 [info ] [MainThread]: customer_360.staging.unique_stg_retention_events_event_id
+[0m12:11:03.793377 [info ] [MainThread]: customer_360.staging.unique_stg_risk_assessments_assessment_id
+[0m12:11:03.793476 [info ] [MainThread]: customer_360.staging.unique_stg_transactions_transaction_id
+[0m12:11:03.793575 [info ] [MainThread]: customer_360.staging.unique_stg_transfers_transfer_id
+[0m12:11:03.793676 [info ] [MainThread]: customer_360.staging.unique_stg_withdrawals_withdrawal_id
+[0m12:11:03.793780 [info ] [MainThread]: customer_360.unique_transaction_types_transaction_type_id
+[0m12:11:03.794072 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 36 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m12:11:03.796176 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 1.5340786, "process_in_blocks": "0", "process_kernel_time": 0.216262, "process_mem_max_rss": "137969664", "process_out_blocks": "0", "process_user_time": 2.025337}
+[0m12:11:03.796523 [debug] [MainThread]: Command `dbt ls` succeeded at 12:11:03.796472 after 1.53 seconds
+[0m12:11:03.796732 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10946d2e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1093884b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1093896d0>]}
+[0m12:11:03.796932 [debug] [MainThread]: Flushing usage events
+[0m12:11:04.453690 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,2 +1,6 @@
+api-server:
+    port: "8080"
 project:
     name: cosmos-ebook-repo
+webserver:
+    port: "8080"
