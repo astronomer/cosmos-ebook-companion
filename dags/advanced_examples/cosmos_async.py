@@ -1,5 +1,9 @@
+"""
+Example showcasing how to use the `async` execution mode for a Cosmos dbt project with BigQuery.
+"""
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, ExecutionMode
-from cosmos.profiles import GoogleCloudServiceAccountFileProfileMapping
+from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 
 import os
 from pathlib import Path

@@ -10,5 +10,3 @@ dbt-postgres==1.9.0
 dbt-duckdb==1.9.4
 dbt-spark[PyHive]==1.9.3
 dbt-databricks==1.10.7
-
-astro-run-dag # This package is needed for the astro run command. It will be removed before a deploy

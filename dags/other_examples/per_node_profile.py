@@ -1,3 +1,25 @@
+"""
+This dag runs a simple dbt project with the main connection being the default
+one provided in the ProfileConfig and another connection 
+(my_other_postgres_connection) being used on the level of
+an individual node in the dbt project:
+
+Snippet from the dbt project schema.yml file:
+
+models:
+  - name: model1
+    description: This is a test model
+    meta:
+      cosmos:
+        operator_kwargs:
+            retries: 10
+        profile_config:
+          profile_name: my_other_profile
+          target_name: prod
+          profile_mapping:
+            conn_id: my_other_postgres_connection
+"""
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 
@@ -39,4 +61,5 @@ per_node_profile = DbtDag(
     profile_config=_profile_config,
     # Add optional Cosmos parameters as needed, for example
     execution_config=_execution_config,
+    tags=["out-of-the-box"],
 )

@@ -7,7 +7,7 @@ from cosmos import (
     RenderConfig,
     LoadMode,
 )
-from cosmos.profiles import SnowflakeEncryptedPrivateKeyPemProfileMapping
+from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 import os
 from pathlib import Path
 

@@ -8,7 +8,7 @@ from cosmos import (
     LoadMode,
     TestBehavior,
 )
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
 from pathlib import Path
 

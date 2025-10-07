@@ -1,6 +1,5 @@
 """
-At the time of writing hosting dbt docs in Airflow 3 is not
-supported yet.
+Dbt docs will soon be supported in Airflow 3.1 with Cosmos 1.11.0!
 """
 
 from airflow.decorators import dag
@@ -10,6 +9,10 @@ from cosmos.operators import DbtDocsS3Operator
 
 import os
 from pathlib import Path
+
+AWS_BUCKET_NAME = os.getenv("AWS_BUCKET_NAME", "<your-bucket-name>")
+AWS_CONN_ID = os.getenv("AWS_CONN_ID", "aws_default")
+DBT_DOCS_DIR = os.getenv("DBT_DOCS_DIR", "dbt_docs")
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
@@ -64,9 +67,8 @@ def example_dbt_docs():
         profile_config=_profile_config,
         dbt_executable_path=DBT_EXECUTABLE_PATH,
         # docs-specific arguments
-        connection_id="aws_default",
-        bucket_name="<your-bucket-name>",
-        folder_dir="dbt_docs",
+        connection_id=AWS_CONN_ID,
+        bucket_name=AWS_BUCKET_NAME,
     )
 
     _dbt_project >> _generate_dbt_docs_aws

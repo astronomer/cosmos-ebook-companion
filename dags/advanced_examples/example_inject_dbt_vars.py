@@ -8,7 +8,6 @@ from pathlib import Path
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-# Resolve path to dbt project relative to this file
 DBT_PROJECT_PATH = (
     (Path(__file__).parents[1] / "dbt" / "inject_dbt_vars").resolve().as_posix()
 )

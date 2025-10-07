@@ -3,7 +3,7 @@ This dag runs the jaffle_shop dbt project on postgres using
 the `DbtDag` class from Cosmos.
 """
 
-from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
+from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, TestBehavior, RenderConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 
 import os
@@ -38,11 +38,16 @@ _profile_config = ProfileConfig(
 
 _execution_config = ExecutionConfig(
     dbt_executable_path=DBT_EXECUTABLE_PATH,
+
 )
 
 _default_args = {
     "retries": 0,
 }
+
+_render_config = RenderConfig(
+    test_behavior=TestBehavior.NONE,
+)
 
 example_DbtDag_postgres = DbtDag(
     # Mandatory DAG parameters

@@ -39,7 +39,7 @@ with deduplicated_customers as (
         marketing_eligible,
         lending_eligible,
         premium_product_eligible
-    from {{ ref('stg_customers') }}
+    from {{ ref('stg_customers_360') }}
 ),
 
 one_address_per_customer as (
