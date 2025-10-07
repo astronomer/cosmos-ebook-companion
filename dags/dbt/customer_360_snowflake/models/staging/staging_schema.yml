@@ -2,7 +2,7 @@ version: 2
 
 models:
   # Core Customer Data
-  - name: stg_customers
+  - name: stg_customers_360
     description: "Staging model for customer master data with demographic and risk enrichment"
     columns:
       - name: customer_id
