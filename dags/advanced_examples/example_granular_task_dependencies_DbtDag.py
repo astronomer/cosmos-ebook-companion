@@ -1,3 +1,9 @@
+"""
+Example showcasing how to create granular task dependencies between tasks outside of the 
+dbt project and individual tasks inside the dbt project rendered with Cosmos when using `DbtDag`.
+"Walk the dag graph" approach.
+"""
+
 from cosmos import (
     DbtDag,
     DbtResourceType,
@@ -6,7 +12,7 @@ from cosmos import (
     ExecutionConfig,
 )
 from airflow.sdk import chain, task
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
 from pathlib import Path
@@ -48,7 +54,7 @@ with DbtDag(
     project_config=_project_config,
     profile_config=_profile_config,
     execution_config=_execution_config,
-    tags=["out-of-the-box"],
+    tags=["out-of-the-box", "task-dependencies"],
 ) as dag:
 
     # define the upstream task

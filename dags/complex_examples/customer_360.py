@@ -1,3 +1,9 @@
+"""
+This dag runs the complex customer_360 dbt project on postgres using
+the `DbtTaskGroup` class from Cosmos.
+It uses a manifest.json file and precomputed dbt deps to improve parsing and execution times.
+"""
+
 from airflow.sdk import dag, chain, task
 from cosmos import (
     DbtTaskGroup,

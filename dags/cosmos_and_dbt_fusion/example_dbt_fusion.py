@@ -1,5 +1,9 @@
+"""
+Example using dbt Fusion to render a dbt project.
+"""
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import SnowflakeEncryptedPrivateKeyPemProfileMapping
+from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 
 import os
 from pathlib import Path
@@ -41,8 +45,8 @@ example_dbt_fusion = DbtDag(
     # Add optional Cosmos parameters as needed, for example
     execution_config=_execution_config,
     # Add optional DAG parameters, for example:
-    start_date=datetime(2025, 7, 1),
+    start_date=datetime(2025, 10, 1),
     schedule="@daily",
     default_args=_default_args,
-    tags=["out-of-the-box"],
+    tags=["out-of-the-box", "dbt-fusion"],
 )

@@ -1,6 +1,6 @@
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import DuckDBUserPasswordProfileMapping
+from cosmos.profiles.duckdb import DuckDBUserPasswordProfileMapping
 import os
 from pathlib import Path
 

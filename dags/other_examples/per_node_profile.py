@@ -21,7 +21,7 @@ models:
 """
 
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
 from pathlib import Path
@@ -61,5 +61,5 @@ per_node_profile = DbtDag(
     profile_config=_profile_config,
     # Add optional Cosmos parameters as needed, for example
     execution_config=_execution_config,
-    tags=["out-of-the-box"],
+    tags=["out-of-the-box", "per-node-profile"],
 )

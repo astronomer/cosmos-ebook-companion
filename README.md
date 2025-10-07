@@ -1,16 +1,15 @@
 # Cosmos companion repository
 
-This repository serves as a companion to the two eBooks:
+This repository serves as a companion to the eBook:
 
-- [Practical Guide: Orchestrating dbt with Apache Airflow® with Cosmos](LINK)
-- [Apache Airflow® and dbt using Cosmos: 13 Practical DAG code examples](LINK)
+- [Practical Guide: Orchestrating dbt with Apache Airflow® with Cosmos](https://www.astronomer.io/ebooks/orchestrating-dbt-with-airflow-using-cosmos)
 
 ## How to run this repository
 
 1. Fork this repository
 2. Clone the forked repository to your local machine
 3. Make sure you have the [Astro CLI](https://www.astronomer.io/docs/astro/cli/overview) installed and are at least on version 1.34.0 to be able to run this Airflow 3 based project.
-4. Create a copy of the `.env_example` file and name it `.env`, this file contains envrionment variables. If you'd like to run dags using other backends then Postgres or Spark, you will need to updated the [connections](https://www.astronomer.io/docs/learn/connections) in this file with your values, for example to connect to a Snowflake instance. 
+4. Create a copy of the `.env_example` file and name it `.env`, this file contains environment variables. If you'd like to run dags using other backends then Postgres or Spark, you will need to updated the [connections](https://www.astronomer.io/docs/learn/connections) in this file with your values, for example to connect to a Snowflake instance. 
 5. In the root of the project, run astro dev start to start the project locally.
 This command will spin up 8 containers on your machine, using Docker or Podman. 5 containers that run Airflow:
 
@@ -31,7 +30,7 @@ This command will spin up 8 containers on your machine, using Docker or Podman. 
 
 ## Contents
 
-This respository contains 26 dags. 
+This repository contains 26 dags. 
 
 - [advanced_examples](dags/advanced_examples): 8 dags that showcase more advanced features of Cosmos.
     - [example_granular_task_dependencies_DbtDag](dags/advanced_examples/example_granular_task_dependencies_DbtDag.py): This dag shows how to set dependencies between tasks outside of the dbt project and individual tasks inside the dbt project rendered with Cosmos when using `DbtDag`.

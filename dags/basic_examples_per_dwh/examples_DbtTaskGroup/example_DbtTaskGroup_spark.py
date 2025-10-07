@@ -1,6 +1,6 @@
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import SparkThriftProfileMapping
+from cosmos.profiles.spark import SparkThriftProfileMapping
 import os
 from pathlib import Path
 

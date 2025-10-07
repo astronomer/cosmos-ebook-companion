@@ -1,3 +1,7 @@
+"""
+Example showcasing how to use a profiles.yml file instead of a `ProfileMapping` with an Airflow connection.
+"""
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 import os
 from pathlib import Path
@@ -33,5 +37,5 @@ example_use_profiles_yml = DbtDag(
     project_config=_project_config,
     profile_config=_profile_config,
     execution_config=_execution_config,
-    tags=["out-of-the-box"],
+    tags=["out-of-the-box", "profiles-yml"],
 )

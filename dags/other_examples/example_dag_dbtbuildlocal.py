@@ -1,3 +1,7 @@
+"""
+Example using the DbtBuildLocalOperator to build a dbt project in one task.
+"""
+
 from airflow.sdk import dag, chain, task
 from cosmos import (
     ProjectConfig,
@@ -37,7 +41,7 @@ _execution_config = ExecutionConfig(
 )
 
 
-@dag(tags=["out-of-the-box"])
+@dag(tags=["out-of-the-box", "reduce-granularity"])
 def example_dag_dbtbuildlocal():
 
     @task

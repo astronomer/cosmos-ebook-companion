@@ -1,6 +1,11 @@
+"""
+Example showcasing how to create granular task dependencies between tasks outside of the 
+dbt project and individual tasks inside the dbt project rendered with Cosmos when using `DbtTaskGroup`.
+"""
+
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
 from pathlib import Path
 
@@ -33,7 +38,7 @@ _execution_config = ExecutionConfig(
 )
 
 
-@dag(tags=["out-of-the-box"])
+@dag(tags=["out-of-the-box", "task-dependencies"])
 def example_granular_task_dependencies_DbtTaskGroup():
 
     @task

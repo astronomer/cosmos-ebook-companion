@@ -1,6 +1,7 @@
 """
-This dag runs the jaffle_shop dbt project on postgres using
-the `DbtTaskGroup` class from Cosmos.
+This dag shows how to reduce granularity to improve parsing and execution times 
+by rendering parts of the dbt project with DbtBuildLocalOperator (low granularity)
+and the DbtTaskGroup class (high granularity).
 """
 
 from airflow.sdk import dag, chain
@@ -12,7 +13,7 @@ from cosmos import (
     RenderConfig,
     DbtBuildLocalOperator,
 )
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
 from pathlib import Path
 
@@ -46,7 +47,7 @@ _execution_config = ExecutionConfig(
 )
 
 
-@dag(tags=["out-of-the-box"])
+@dag(tags=["out-of-the-box", "reduce-granularity"])
 def example_reduce_granularity():
 
     # run all the seeds and staging models without granularity

@@ -1,3 +1,7 @@
+# """
+# Example for a decoupled setup with Kubernetes execution mode and manifest load mode.
+# """
+
 # from cosmos import DbtDag, ExecutionConfig, ExecutionMode, RenderConfig
 # from airflow.providers.cncf.kubernetes.secret import Secret
 

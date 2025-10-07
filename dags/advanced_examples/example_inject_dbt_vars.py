@@ -1,6 +1,10 @@
+"""
+Example showcasing how to inject dbt vars into a dbt project rendered with Cosmos when using `DbtTaskGroup`.
+"""
+
 from airflow.sdk import dag, chain, task, Param
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
 from pathlib import Path
@@ -38,7 +42,7 @@ _execution_config = ExecutionConfig(
             "DEFAULT_VALUE",
             type="string",
         ),
-    },
+    },  # Learn more about params: https://www.astronomer.io/docs/learn/airflow-params
     tags=["out-of-the-box"],
 )
 def example_inject_dbt_vars():
@@ -56,7 +60,7 @@ def example_inject_dbt_vars():
         execution_config=_execution_config,
         operator_args={
             "vars": '{"my_department": "{{ ti.xcom_pull(task_ids="pre_dbt") }}"}',
-        },
+        },  # pull a param from XComs, see: https://www.astronomer.io/docs/learn/airflow-passing-data-between-tasks
     )
 
     chain(_pre_dbt, dbt_project)

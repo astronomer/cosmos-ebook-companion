@@ -1,3 +1,9 @@
+"""
+This dag runs the complex customer_360 dbt project on snowflake using
+the `DbtTaskGroup` class from Cosmos.
+"""
+
+
 from airflow.sdk import dag, chain, task
 from cosmos import (
     DbtTaskGroup,

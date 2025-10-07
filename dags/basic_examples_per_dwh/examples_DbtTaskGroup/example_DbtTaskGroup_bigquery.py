@@ -5,7 +5,7 @@ the `DbtTaskGroup` class from Cosmos.
 
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import GoogleCloudServiceAccountFileProfileMapping
+from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 import os
 from pathlib import Path
 

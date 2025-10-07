@@ -1,6 +1,6 @@
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.profiles import SnowflakeEncryptedPrivateKeyPemProfileMapping
+from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 import os
 from pathlib import Path
 

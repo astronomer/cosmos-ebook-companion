@@ -4,7 +4,7 @@ the `DbtDag` class from Cosmos.
 """
 
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, TestBehavior, RenderConfig
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
 from pathlib import Path
@@ -58,7 +58,7 @@ example_DbtDag_postgres = DbtDag(
     # Add optional Cosmos parameters as needed, for example
     execution_config=_execution_config,
     # Add optional DAG parameters, for example:
-    start_date=datetime(2025, 7, 1),
+    start_date=datetime(2025, 10, 1),
     schedule="@daily",
     default_args=_default_args,
     tags=["basic", "postgres", "jaffle_shop", "out-of-the-box"],
