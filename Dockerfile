@@ -28,4 +28,5 @@ RUN python -m venv dbt_venv_duckdb && source dbt_venv_duckdb/bin/activate && \
 # # Adding dbt Fusion 
 USER root
 RUN apt install -y curl
+ENV SHELL=/bin/bash
 RUN curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update

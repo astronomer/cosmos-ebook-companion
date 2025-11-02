@@ -12,7 +12,6 @@ from pathlib import Path
 
 AWS_BUCKET_NAME = os.getenv("AWS_BUCKET_NAME", "<your-bucket-name>")
 AWS_CONN_ID = os.getenv("AWS_CONN_ID", "aws_default")
-DBT_DOCS_DIR = os.getenv("DBT_DOCS_DIR", "dbt_docs")
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
@@ -69,6 +68,7 @@ def example_dbt_docs():
         # docs-specific arguments
         connection_id=AWS_CONN_ID,
         bucket_name=AWS_BUCKET_NAME,
+        folder_dir="jaffle",
     )
 
     _dbt_project >> _generate_dbt_docs_aws
