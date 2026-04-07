@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: customer_orders
+    description: "Customer order aggregation using cross-project references to the upstream project via dbt-loom."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: total_orders
+        description: "Number of completed orders per customer"
+
+  - name: customer_summary
+    description: "Customer summary with tier classification based on lifetime spend."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_tier
+        description: "Gold/Silver/Bronze based on total spend"
