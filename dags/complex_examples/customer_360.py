@@ -16,16 +16,11 @@ from cosmos import (
 )
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
-from pathlib import Path
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_C360")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "customer_360").resolve().as_posix()
-)
-DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/customer_360"
 DBT_MANIFEST_PATH = f"{DBT_PROJECT_PATH}/target/manifest.json"
 
 # using a manifest.json file and precomputed dbt deps
@@ -44,18 +39,16 @@ _profile_config = ProfileConfig(
     ),
 )
 
-_execution_config = ExecutionConfig(
-    dbt_executable_path=DBT_EXECUTABLE_PATH,
-)
+_execution_config = ExecutionConfig()
 
 
 _render_config = RenderConfig(
     load_method=LoadMode.DBT_MANIFEST,  # only allow manifest loading
-    test_behavior=TestBehavior.BUILD,  # render one task for a model and its test
+    test_behavior=TestBehavior.AFTER_EACH,
 )
 
 
-@dag(tags=["out-of-the-box"])
+@dag(tags=["out-of-the-box", "postgres"], default_args={"retries": 2})
 def customer_360():
 
     @task

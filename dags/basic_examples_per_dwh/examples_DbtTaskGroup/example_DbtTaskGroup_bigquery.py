@@ -7,7 +7,6 @@ from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 import os
-from pathlib import Path
 
 # You need to set this Airflow connection, for an example see the .env_example file in the root of this repository
 # Values can be overriden using the `profile_args` parameter in the `GoogleCloudServiceAccountFileProfileMapping` class
@@ -18,11 +17,7 @@ BIGQUERY_KEYFILE_PATH = os.getenv(
     "BIGQUERY_KEYFILE_PATH", "/usr/local/airflow/include/secrets/bigquery-key.json"
 )
 
-# Adjust this to your own project name, the path to the dbt project and
-# the path to the dbt executable if you are using one
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / "jaffle_shop").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_bigquery/bin/dbt"
 
 # Only needed if you can't install dbt-bigquery in the requirements.txt file

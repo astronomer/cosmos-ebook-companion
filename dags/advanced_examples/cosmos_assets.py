@@ -10,15 +10,11 @@ from airflow.sdk import dag, task, Asset
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
-from pathlib import Path
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_SIMPLEST")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "simplest_dbt_project").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/simplest_dbt_project"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -50,7 +46,7 @@ cosmos_assets = DbtDag(
 
 
 @dag(
-    schedule=[Asset("postgres://postgres_data:5432/cosmos/DEMO_SCHEMA/model1")],
+    schedule=[Asset("postgres://postgres_data:5432/cosmos/DEMO_SCHEMA_SIMPLEST/model1")],
     tags=["assets", "postgres", "out-of-the-box", "helper"],
 )
 def my_downstream_dag():

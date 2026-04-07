@@ -6,7 +6,6 @@ the `DbtDag` class from Cosmos.
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.databricks import DatabricksTokenProfileMapping
 import os
-from pathlib import Path
 from pendulum import datetime
 
 # You need to set this Airflow connection, for an example see the .env_example file in the root of this repository
@@ -19,10 +18,7 @@ COMPUTE_TYPE = os.getenv("DATABRICKS_COMPUTE_TYPE", "serverless")
 
 # Adjust this to your own project name, the path to the dbt project and
 # the path to the dbt executable if you are using one
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "jaffle_shop")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_databricks/bin/dbt"
 
 _project_config = ProjectConfig(

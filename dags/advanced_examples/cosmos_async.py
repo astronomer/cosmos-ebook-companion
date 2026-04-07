@@ -6,14 +6,10 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, Execut
 from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 
 import os
-from pathlib import Path
 
 BIGQUERY_CONN_ID = os.getenv("BIGQUERY_CONN_ID", "bigquery_default")
 
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "async_dbt_project")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/async_dbt_project"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_bigquery/bin/dbt"
 
 _project_config = ProjectConfig(

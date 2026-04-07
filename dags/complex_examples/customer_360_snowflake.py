@@ -15,14 +15,10 @@ from cosmos import (
 )
 from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 import os
-from pathlib import Path
 
 SNOWFLAKE_CONN_ID = os.getenv("SNOWFLAKE_CONN_ID", "snowflake_default")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "customer_360_snowflake").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/customer_360_snowflake"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_snowflake/bin/dbt"
 
 _project_config = ProjectConfig(

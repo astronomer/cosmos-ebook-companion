@@ -7,17 +7,12 @@ from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
-from pathlib import Path
 
 # You need to set this Airflow connection, for an example see the .env_example file in the root of this repository
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_ACCESS_NODES")
 
-# Adjust this to your own project name, the path to the dbt project and
-# the path to the dbt executable if you are using one
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "access_nodes").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/access_nodes"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -38,7 +33,7 @@ _execution_config = ExecutionConfig(
 )
 
 
-@dag(tags=["out-of-the-box", "task-dependencies"])
+@dag(tags=["out-of-the-box", "task-dependencies", "postgres"])
 def example_granular_task_dependencies_DbtTaskGroup():
 
     @task

@@ -7,7 +7,6 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.spark import SparkThriftProfileMapping
 
 import os
-from pathlib import Path
 from pendulum import datetime
 
 # You need to set this Airflow connection, for an example see the .env_example file in the root of this repository
@@ -16,10 +15,7 @@ SCHEMA_NAME = os.getenv("SPARK_SCHEMA", "dev_schema")
 
 # Adjust this to your own project name, the path to the dbt project and
 # the path to the dbt executable if you are using one
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "jaffle_shop")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_spark/bin/dbt"
 
 # Only needed if you can't install dbt-spark in the requirements.txt file

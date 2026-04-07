@@ -2,16 +2,12 @@ from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.spark import SparkThriftProfileMapping
 import os
-from pathlib import Path
 
 SPARK_CONN_ID = os.getenv("SPARK_CONN_ID", "spark_default")
 DB_NAME = os.getenv("SPARK_DATABASE", "dev_database")
 SCHEMA_NAME = os.getenv("SPARK_SCHEMA", "dev_schema")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / "jaffle_shop").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_spark/bin/dbt"
 
 _project_config = ProjectConfig(
