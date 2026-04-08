@@ -7,7 +7,6 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 
 import os
-from pathlib import Path
 from pendulum import datetime
 
 # You need to set this Airflow connection using a service account key file
@@ -16,10 +15,7 @@ BIGQUERY_CONN_ID = os.getenv("BIGQUERY_CONN_ID", "bigquery_default")
 
 # Adjust this to your own project name, the path to the dbt project and
 # the path to the dbt executable if you are using one
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "jaffle_shop")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_bigquery/bin/dbt"
 
 _project_config = ProjectConfig(

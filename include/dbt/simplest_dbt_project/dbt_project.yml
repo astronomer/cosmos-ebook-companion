@@ -1,0 +1,8 @@
+name: 'simplest_dbt_project'
+version: '1.0.0'
+
+
+model-paths: ["models"]
+
+models:
+  simplest_dbt_project:

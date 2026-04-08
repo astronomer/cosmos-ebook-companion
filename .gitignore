@@ -13,3 +13,12 @@ include/secrets/
 dbt_sql_cheatsheet.md
 include/*.duckdb
 .cursorignore
+release_notes.md
+**/dbt/**/dbt_packages/
+**/dbt/**/logs/
+**/dbt/**/.user.yml
+**/dbt/**/target/partial_parse.msgpack
+**/dbt/**/target/perf_info.json
+**/dbt/**/target/semantic_manifest.json
+**/dbt/**/target/graph.gpickle
+**/dbt/**/target/graph_summary.json

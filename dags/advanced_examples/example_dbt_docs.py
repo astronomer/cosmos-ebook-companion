@@ -8,7 +8,6 @@ from cosmos.profiles import PostgresUserPasswordProfileMapping
 from cosmos.operators import DbtDocsS3Operator
 
 import os
-from pathlib import Path
 
 AWS_BUCKET_NAME = os.getenv("AWS_BUCKET_NAME", "<your-bucket-name>")
 AWS_CONN_ID = os.getenv("AWS_CONN_ID", "aws_default")
@@ -16,10 +15,7 @@ AWS_CONN_ID = os.getenv("AWS_CONN_ID", "aws_default")
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "jaffle_shop")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -48,7 +44,7 @@ _default_args = {
     schedule=None,
     start_date=None,
     catchup=False,
-    tags=["dbt_docs", "Airflow 2"],
+    tags=["dbt_docs", "Airflow 2", "postgres"],
 )
 def example_dbt_docs():
 

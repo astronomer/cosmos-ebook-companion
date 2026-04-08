@@ -1,0 +1,8 @@
+order_id,customer_id,order_date,amount,status
+1,1,2025-01-15,120.00,completed
+2,2,2025-01-16,85.50,completed
+3,1,2025-02-01,200.00,completed
+4,3,2025-02-10,45.00,returned
+5,4,2025-03-01,310.00,completed
+6,2,2025-03-15,55.00,completed
+7,5,2025-04-01,175.00,completed

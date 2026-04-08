@@ -1,0 +1,6 @@
+selectors:
+  - name: staging_only
+    description: "Select only the staging models (views)"
+    definition:
+      method: path
+      value: models/staging

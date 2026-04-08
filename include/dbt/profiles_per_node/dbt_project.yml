@@ -1,0 +1,8 @@
+name: 'profiles_per_node'
+version: '1.0.0'
+
+
+model-paths: ["models"]
+
+models:
+  profiles_per_node:

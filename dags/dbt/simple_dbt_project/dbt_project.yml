@@ -1,4 +1,0 @@
-name: 'simple_dbt_project'
-vars:
-    my_department: "NOTSET"
-    my_date: "NOTSET"

@@ -11,16 +11,12 @@ from cosmos import (
 )
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 import os
-from pathlib import Path
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 DB_NAME = os.getenv("POSTGRES_DB", "DEMO_DB")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_SIMPLEST")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "simplest_dbt_project").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/simplest_dbt_project"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -41,7 +37,7 @@ _execution_config = ExecutionConfig(
 )
 
 
-@dag(tags=["out-of-the-box", "reduce-granularity"])
+@dag(tags=["out-of-the-box", "reduce-granularity", "postgres"])
 def example_dag_dbtbuildlocal():
 
     @task

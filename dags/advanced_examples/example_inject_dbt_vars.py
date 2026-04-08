@@ -7,14 +7,11 @@ from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
-from pathlib import Path
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_INJECT_VARS")
 
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "inject_dbt_vars").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/inject_dbt_vars"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -43,7 +40,7 @@ _execution_config = ExecutionConfig(
             type="string",
         ),
     },  # Learn more about params: https://www.astronomer.io/docs/learn/airflow-params
-    tags=["out-of-the-box"],
+    tags=["out-of-the-box", "postgres"],
 )
 def example_inject_dbt_vars():
 

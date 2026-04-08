@@ -7,20 +7,14 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.duckdb import DuckDBUserPasswordProfileMapping
 
 import os
-from pathlib import Path
 from pendulum import datetime
 
 # You need to set this Airflow connection, for an example see the .env_example file in the root of this repository
 DUCKDB_CONN_ID = os.getenv("DUCKDB_CONN_ID", "duckdb_default")
-DB_PATH = "/usr/local/airflow/include/my_duck.duckdb"
+DB_PATH = f"{os.environ['AIRFLOW_HOME']}/include/my_duck.duckdb"
 SCHEMA_NAME = os.getenv("DUCKDB_SCHEMA", "main")
 
-# Adjust this to your own project name, the path to the dbt project and
-# the path to the dbt executable if you are using one
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "jaffle_shop")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_duckdb/bin/dbt"
 
 # Only needed if you can't install dbt-duckdb in the requirements.txt file

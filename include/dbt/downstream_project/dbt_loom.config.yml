@@ -1,0 +1,7 @@
+manifests:
+  - name: upstream_project
+    type: file
+    config:
+      path: /usr/local/airflow/include/dbt/upstream_project/target/manifest.json
+
+enable_telemetry: false

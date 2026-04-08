@@ -71,4 +71,4 @@ This repository contains 26 dags.
 - [other_examples](dags/other_examples): 2 dags that showcase other examples of how to use Cosmos.
 
 
-All dbt projects are located in the [dbt](dbt) folder.
+All dbt projects are located in the [include/dbt](include/dbt) folder.

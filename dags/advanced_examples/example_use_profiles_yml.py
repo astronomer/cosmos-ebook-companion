@@ -4,14 +4,8 @@ Example showcasing how to use a profiles.yml file instead of a `ProfileMapping` 
 
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 import os
-from pathlib import Path
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / "project_with_profiles_yml")
-    .resolve()
-    .as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/project_with_profiles_yml"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

@@ -24,15 +24,11 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
 import os
-from pathlib import Path
 
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
-SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
+SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_PER_NODE")
 
-DBT_PROJECT_NAME = os.getenv("DBT_PROJECT_NAME", "profiles_per_node")
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[1] / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/profiles_per_node"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(
@@ -61,5 +57,5 @@ per_node_profile = DbtDag(
     profile_config=_profile_config,
     # Add optional Cosmos parameters as needed, for example
     execution_config=_execution_config,
-    tags=["out-of-the-box", "per-node-profile"],
+    tags=["out-of-the-box", "per-node-profile", "postgres"],
 )

@@ -2,17 +2,13 @@ from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 import os
-from pathlib import Path
 
 SNOWFLAKE_CONN_ID = os.getenv("SNOWFLAKE_CONN_ID", "snowflake_default")
 DB_NAME = os.getenv("SNOWFLAKE_DATABASE", "DEMO_DB")
 SCHEMA_NAME = os.getenv("SNOWFLAKE_SCHEMA", "DEMO_SCHEMA")
 WAREHOUSE_NAME = os.getenv("SNOWFLAKE_WAREHOUSE", "HUMANS")
 
-# Resolve path to dbt project relative to this file
-DBT_PROJECT_PATH = (
-    (Path(__file__).parents[2] / "dbt" / "jaffle_shop").resolve().as_posix()
-)
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_snowflake/bin/dbt"
 
 _project_config = ProjectConfig(
