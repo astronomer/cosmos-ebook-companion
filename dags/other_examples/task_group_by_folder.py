@@ -16,6 +16,8 @@ This reduces visual clutter in the Airflow UI for large dbt projects while
 keeping per-model task granularity.
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, RenderConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
@@ -25,7 +27,10 @@ from pendulum import datetime
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

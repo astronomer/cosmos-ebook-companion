@@ -4,6 +4,8 @@ tuned performance settings: multiple dbt threads for parallel model
 execution, and adjusted poke_interval / timeout on the consumer sensors.
 """
 
+from pathlib import Path
+
 from cosmos import (
     DbtDag,
     ProjectConfig,
@@ -20,7 +22,10 @@ from pendulum import datetime
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 
 _project_config = ProjectConfig(
     dbt_project_path=DBT_PROJECT_PATH,

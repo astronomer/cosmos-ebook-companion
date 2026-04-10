@@ -3,6 +3,8 @@ Example showcasing how to create granular task dependencies between tasks outsid
 dbt project and individual tasks inside the dbt project rendered with Cosmos when using `DbtTaskGroup`.
 """
 
+from pathlib import Path
+
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
@@ -12,7 +14,10 @@ import os
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_ACCESS_NODES")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/access_nodes"
+DBT_PROJECT_NAME = "access_nodes"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

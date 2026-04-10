@@ -20,6 +20,8 @@ models:
             conn_id: my_other_postgres_connection
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
@@ -28,7 +30,10 @@ import os
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_PER_NODE")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/profiles_per_node"
+DBT_PROJECT_NAME = "profiles_per_node"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

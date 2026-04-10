@@ -2,6 +2,8 @@
 This dag runs the jaffle_shop using the new experimental watcher execution mode.
 """
 
+from pathlib import Path
+
 from cosmos import (
     DbtDag,
     ProjectConfig,
@@ -23,7 +25,10 @@ SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
 # Adjust this to your own project name, the path to the dbt project and
 # the path to the dbt executable if you are using one
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 
 _project_config = ProjectConfig(
     dbt_project_path=DBT_PROJECT_PATH,

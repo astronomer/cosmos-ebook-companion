@@ -1,3 +1,4 @@
+from pathlib import Path
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.databricks import DatabricksTokenProfileMapping
@@ -8,7 +9,10 @@ CATALOG_NAME = os.getenv("DATABRICKS_CATALOG", "dev_catalog")
 SCHEMA_NAME = os.getenv("DATABRICKS_SCHEMA", "dev_schema")
 COMPUTE_NAME = os.getenv("DATABRICKS_COMPUTE", "shared_compute")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[3] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_databricks/bin/dbt"
 
 _project_config = ProjectConfig(

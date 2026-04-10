@@ -4,6 +4,8 @@ by rendering parts of the dbt project with DbtBuildLocalOperator (low granularit
 and the DbtTaskGroup class (high granularity).
 """
 
+from pathlib import Path
+
 from airflow.sdk import dag, chain
 from cosmos import (
     DbtTaskGroup,
@@ -20,7 +22,10 @@ import os
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 # Only needed if you can't install dbt-postgres in the requirements.txt file

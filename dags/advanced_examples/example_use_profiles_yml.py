@@ -2,10 +2,15 @@
 Example showcasing how to use a profiles.yml file instead of a `ProfileMapping` with an Airflow connection.
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 import os
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/project_with_profiles_yml"
+DBT_PROJECT_NAME = "project_with_profiles_yml"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

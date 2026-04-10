@@ -2,6 +2,8 @@
 Example using dbt Fusion to render a dbt project.
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.snowflake import SnowflakeEncryptedPrivateKeyPemProfileMapping
 
@@ -9,7 +11,10 @@ import os
 from pendulum import datetime
 
 SNOWFLAKE_CONN_ID = os.getenv("SNOWFLAKE_CONN_ID", "snowflake_default")
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_snowflake/bin/dbt"
 
 _project_config = ProjectConfig(

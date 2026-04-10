@@ -3,6 +3,8 @@ This dag runs the jaffle_shop dbt project on postgres using
 the `DbtDag` class from Cosmos.
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, TestBehavior, RenderConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
@@ -15,7 +17,10 @@ SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
 # Adjust this to your own project name, the path to the dbt project and
 # the path to the dbt executable if you are using one
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[3] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 # Only needed if you can't install dbt-postgres in the requirements.txt file

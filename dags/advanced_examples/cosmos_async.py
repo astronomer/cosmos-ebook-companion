@@ -2,6 +2,8 @@
 Example showcasing how to use the `async` execution mode for a Cosmos dbt project with BigQuery.
 """
 
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig, ExecutionMode
 from cosmos.profiles.bigquery import GoogleCloudServiceAccountFileProfileMapping
 
@@ -9,7 +11,10 @@ import os
 
 BIGQUERY_CONN_ID = os.getenv("BIGQUERY_CONN_ID", "bigquery_default")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/async_dbt_project"
+DBT_PROJECT_NAME = "async_dbt_project"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_bigquery/bin/dbt"
 
 _project_config = ProjectConfig(

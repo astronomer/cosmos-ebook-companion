@@ -7,6 +7,8 @@ Learn more about asset scheduling: https://www.astronomer.io/docs/learn/airflow-
 """
 
 from airflow.sdk import dag, task, Asset
+from pathlib import Path
+
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 import os
@@ -14,7 +16,10 @@ import os
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_SIMPLEST")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/simplest_dbt_project"
+DBT_PROJECT_NAME = "simplest_dbt_project"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

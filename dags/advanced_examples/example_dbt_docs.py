@@ -2,6 +2,8 @@
 Dbt docs will soon be supported in Airflow 3.1 with Cosmos 1.11.0!
 """
 
+from pathlib import Path
+
 from airflow.decorators import dag
 from cosmos import ProjectConfig, ProfileConfig, ExecutionConfig, DbtTaskGroup
 from cosmos.profiles import PostgresUserPasswordProfileMapping
@@ -15,7 +17,10 @@ AWS_CONN_ID = os.getenv("AWS_CONN_ID", "aws_default")
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_postgres/bin/dbt"
 
 _project_config = ProjectConfig(

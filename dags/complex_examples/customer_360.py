@@ -4,6 +4,8 @@ the `DbtTaskGroup` class from Cosmos.
 It uses a manifest.json file and precomputed dbt deps to improve parsing and execution times.
 """
 
+from pathlib import Path
+
 from airflow.sdk import dag, chain, task
 from cosmos import (
     DbtTaskGroup,
@@ -20,7 +22,10 @@ import os
 POSTGRES_CONN_ID = os.getenv("POSTGRES_CONN_ID", "postgres_default")
 SCHEMA_NAME = os.getenv("POSTGRES_SCHEMA", "DEMO_SCHEMA_C360")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/customer_360"
+DBT_PROJECT_NAME = "customer_360"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[2] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_MANIFEST_PATH = f"{DBT_PROJECT_PATH}/target/manifest.json"
 
 # using a manifest.json file and precomputed dbt deps

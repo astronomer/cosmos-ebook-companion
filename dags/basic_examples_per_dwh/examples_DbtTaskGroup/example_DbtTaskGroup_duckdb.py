@@ -1,3 +1,4 @@
+from pathlib import Path
 from airflow.sdk import dag, chain, task
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles.duckdb import DuckDBUserPasswordProfileMapping
@@ -7,7 +8,10 @@ DUCKDB_CONN_ID = os.getenv("DUCKDB_CONN_ID", "duckdb_default")
 DB_PATH = "/usr/local/airflow/include/my_duck.duckdb"
 SCHEMA_NAME = os.getenv("DUCKDB_SCHEMA", "main")
 
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/include/dbt/jaffle_shop"
+DBT_PROJECT_NAME = "jaffle_shop"
+DBT_PROJECT_PATH = (
+    (Path(__file__).parents[3] / "include" / "dbt" / DBT_PROJECT_NAME).resolve().as_posix()
+)
 DBT_EXECUTABLE_PATH = f"{os.getenv('AIRFLOW_HOME')}/dbt_venv_duckdb/bin/dbt"
 
 _project_config = ProjectConfig(
