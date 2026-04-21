@@ -47,7 +47,6 @@ _execution_config = ExecutionConfig(
     execution_mode=ExecutionMode.WATCHER, invocation_mode=InvocationMode.DBT_RUNNER
 )
 
-
 example_dag_watcher_mode = DbtDag(
     # Mandatory DAG parameters
     dag_id="example_dag_watcher_mode",

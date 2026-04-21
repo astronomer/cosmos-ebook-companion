@@ -10,4 +10,4 @@ dbt-postgres==1.9.0
 dbt-duckdb==1.9.4
 dbt-spark[PyHive]==1.9.3
 dbt-databricks==1.10.7
-dbt-loom==0.9.1
+dbt-loom==0.9.1 
