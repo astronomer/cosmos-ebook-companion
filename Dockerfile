@@ -1,4 +1,4 @@
-FROM astrocrpublic.azurecr.io/runtime:3.1
+FROM astrocrpublic.azurecr.io/runtime:3.2
 ## Code to install the various dbt packages into a virtual environment at build time 
 # (use if you can't install them in requirements.txt due to version conflicts)
 # install dbt-postgres into a virtual environment
